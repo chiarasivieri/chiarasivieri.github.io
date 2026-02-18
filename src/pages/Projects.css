@@ -1,0 +1,116 @@
+/* Hero con Vanta */
+.projects-hero {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Libre Baskerville', serif;
+}
+
+/* Menu */
+.projects-menu {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.projects-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.projects-link:hover {
+  color:rgb(0, 0, 0);
+}
+
+.projects-link.active {
+  font-weight: 700;
+  color:rgb(0, 0, 0);
+}
+
+/* Sezione lista progetti */
+.projects-list {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.project-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+/* Alternanza (blob a destra) */
+.project-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Foto blob */
+.project-photo-blob {
+  flex: 1;
+  max-width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 50%;
+  animation: blobMorph 12s ease-in-out infinite alternate;
+}
+
+.project-photo-blob img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Blob animato */
+@keyframes blobMorph {
+  0% {
+    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
+  }
+  25% {
+    border-radius: 70% 30% 50% 60% / 60% 65% 35% 40%;
+  }
+  50% {
+    border-radius: 55% 65% 40% 70% / 50% 60% 40% 60%;
+  }
+  75% {
+    border-radius: 65% 35% 60% 40% / 70% 50% 60% 50%;
+  }
+  100% {
+    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
+  }
+}
+
+/* Testo progetto */
+.project-text {
+  flex: 1.2;
+  color: white;
+}
+
+.project-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: "Playfair Display", serif;
+}
+
+.project-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}

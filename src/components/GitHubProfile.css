@@ -1,0 +1,144 @@
+/* ========================================
+   CARD DEL PROFILO (AVATAR + INFO)
+   ======================================== */
+
+/* Contenitore principale della card */
+.github-card {
+  display: flex;         /* Mette immagine e testo affiancati */
+  align-items: center;   /* Allinea verticalmente al centro */
+  gap: 20px;             /* Spazio tra immagine e testo */
+  margin-bottom: 40px;   /* Spazio prima della lista dei repository */
+  padding-bottom: 20px;  /* Spazio sotto, prima della linea di separazione */
+  border-bottom: 1px solid #444;
+  font-family: 'Raleway', serif; /* Linea di separazione */
+}
+
+/* Avatar circolare */
+.github-avatar {
+  width: 80px;           /* Dimensione fissa e più piccola */
+  height: 80px;          /* Dimensione fissa e più piccola */
+  border-radius: 50%;    /* La magia per il cerchio */
+  border: 2px solid #c7dcec; /* Bordo coordinato con il tema */
+  object-fit: cover;     /* Evita che l'immagine si deformi se non è quadrata */
+}
+
+/* Contenitore delle informazioni testuali (username, stats, bottone) */
+.github-info {
+  display: flex;
+  flex-direction: column; /* Impila gli elementi verticalmente */
+  gap: 8px;
+  font-family: 'Raleway', serif;              /* Spazio tra nome, stats e bottone */
+}
+
+/* Username (che è un link) */
+.github-username {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.github-username h3 {
+  margin: 0;
+  color: #fff;
+  font-family: 'Raleway', serif;
+  font-size: 1.5rem;
+}
+
+.github-username:hover h3 {
+  color: #c7dcec; /* Effetto hover per indicare che è cliccabile */
+}
+
+/* Contenitore delle statistiche */
+.github-stats {
+  display: flex;
+  flex-wrap: wrap; /* Permette al testo di andare a capo su schermi piccoli */
+  gap: 15px;       /* Spazio tra "Followers", "Following", etc. */
+  font-size: 0.8em;
+  color: #aaa;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Bottone "Visita su GitHub" */
+.github-button {
+  display: inline-block;
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: 1px solid #444;
+  font-size: 0.9em;
+  margin-top: 5px;
+  text-align: center;
+  width: fit-content; /* Il bottone si adatta alla larghezza del suo testo */
+}
+
+.github-button:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+
+/* ========================================
+   LISTA DEI REPOSITORY
+   ======================================== */
+
+.github-repos {
+  max-width: 600px;
+  margin: 0 auto; /* Si centra automaticamente nel suo contenitore */
+  text-align: left;
+}
+
+.github-repos h3 {
+  font-family: 'Raleway', serif;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #fff; /* Aggiunto colore per coerenza */
+}
+
+.github-repos ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Stile per ogni singolo repository nella lista */
+.repo-item {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #333;
+  transition: border-color 0.3s ease;
+}
+
+.repo-item:hover {
+  border-color: #555; /* Leggero effetto hover */
+}
+
+/* Nome del repository (link) */
+.repo-item a {
+  font-weight: bold;
+  color: #c7dcec;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+/* Descrizione del repository */
+.repo-item p {
+  margin: 8px 0;
+  color: #ccc;
+  font-size: 0.9em;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Linguaggio di programmazione */
+.repo-item span {
+  font-size: 0.8em;
+  color: #aaa;
+  background-color: #2a2a2a;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-family: 'Raleway', sans-serif;
+}

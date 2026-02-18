@@ -1,0 +1,58 @@
+/* HERO SECTION */
+.hero {
+  height: 100vh;              /* prende tutta l'altezza della finestra */
+  width: 100%;                /* prende tutta la larghezza */
+  display: flex;
+  align-items: center;        /* centra il contenuto in verticale */
+  justify-content: center;    /* centra il contenuto in orizzontale */
+  position: relative;         /* necessario per overlay */
+  overflow: hidden;
+  margin-bottom: 0.2rem;          /* evita scroll indesiderati */
+}
+
+.hero-overlay {
+  text-align: center;
+  color: white;
+  z-index: 1;  /* sta sopra allo sfondo Vanta */
+}
+
+
+.hero-title {
+  font-size: 4.5rem;
+  font-family: 'Libre Baskerville', serif;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;  
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin-top: 0.4rem;  !important;
+}
+
+/* MINI MENU */
+.hero-menu {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hero-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
+}
+
+.hero-link:hover {
+  color: #ff5f6d;
+  transform: scale(1.1);
+  text-shadow: 0 0 8px rgba(255, 95, 109, 0.7); /* effetto glow */
+}

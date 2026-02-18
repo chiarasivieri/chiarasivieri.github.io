@@ -1,0 +1,164 @@
+/* ==================================
+   HERO / BANDA IN ALTO
+   ================================== */
+.about-hero {
+  height: 25vh; /* banda più sottile */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-family: 'Libre Baskerville', serif;
+  margin-bottom: 1rem;
+}
+
+.about-menu {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.about-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.about-link:hover {
+  color: rgb(0, 0, 0);
+}
+
+.about-link.active {
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+}
+
+
+/* ==================================
+   LAYOUT A DUE COLONNE
+   ================================== */
+.contact-container {
+  display: flex;
+  flex-direction: row-reverse; 
+  justify-content: center;
+  align-items: stretch;       
+  gap: 50px;
+  max-width: 1200px;
+  margin: 10px auto 50px;
+  padding: 0 20px;
+}
+
+/* Stile generico per entrambe le colonne */
+.contact-form-column,
+.github-profile-column {
+  flex: 1;
+  max-width: 500px;
+  padding: 30px;
+  background-color: rgba(26, 26, 26, 0.5);
+  border: 1px solid #333;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titoli H2 dentro le colonne */
+.contact-form-column h2,
+.github-profile-column h2 {
+  font-family: 'Raleway', serif;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #c7dcec;
+}
+
+
+/* ==================================
+   STILE SPECIFICO COLONNA DESTRA (FORM)
+   ================================== */
+.contact-form-column form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Fa sì che il form occupi tutto lo spazio verticale disponibile */
+}
+
+.contact-form-column input,
+.contact-form-column textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px; /* Spazio tra i campi */
+  border-radius: 5px;  /* Angoli leggermente arrotondati */
+  border: 1px solid #555;
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+  font-family: 'Raleway', sans-serif;
+}
+
+.contact-form-column textarea {
+  resize: vertical;
+  height: 150px;
+  flex-grow: 1; /* Fa sì che l'area di testo si espanda per riempire lo spazio */
+}
+
+.contact-form-column button {
+  background-color: #b2b2d8;
+  color: black;
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px; /* Spazio sopra il bottone */
+}
+
+.contact-form-column button:hover {
+  background-color: #5b86e5;
+}
+
+
+/* ==================================
+   STILE SPECIFICO COLONNA SINISTRA (GITHUB)
+   ================================== */
+/* Questo stile si trova in GitHubProfile.css, ma ci assicuriamo che la
+   card si adatti bene al contenitore */
+.github-profile-column .github-card {
+  margin: 0;
+  max-width: 100%;
+  font-family: 'Raleway', serif;
+}
+
+
+/* ==================================
+   LINKEDIN SOTTO A TUTTO
+   ================================== */
+.linkedin-section {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+}
+
+
+/* ==================================
+   RESPONSIVE DESIGN
+   ================================== */
+/* Per schermi più piccoli (es. cellulari), le colonne vanno una sotto l'altra */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column-reverse; 
+    align-items: center;
+    gap: 30px;
+  }
+}
