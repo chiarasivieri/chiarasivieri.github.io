@@ -1,4 +1,4 @@
-/* Hero con Vanta */
+/* Hero */
 .projects-hero {
   height: 25vh;
   display: flex;
@@ -17,7 +17,6 @@
   font-family: 'Libre Baskerville', serif;
 }
 
-/* Menu */
 .projects-menu {
   display: flex;
   gap: 2rem;
@@ -34,16 +33,13 @@
   transition: color 0.3s ease;
 }
 
-.projects-link:hover {
-  color:rgb(0, 0, 0);
-}
+.projects-link:hover { color: rgb(0, 0, 0); }
+.projects-link.active { font-weight: 700; color: rgb(0, 0, 0); }
 
-.projects-link.active {
-  font-weight: 700;
-  color:rgb(0, 0, 0);
-}
+/* Show/hide helpers */
+.desktop-only { display: flex; flex-direction: column; align-items: center; }
 
-/* Sezione lista progetti */
+/* Progetti */
 .projects-list {
   max-width: 1200px;
   margin: 4rem auto;
@@ -58,12 +54,10 @@
   margin-bottom: 5rem;
 }
 
-/* Alternanza (blob a destra) */
 .project-section.reverse {
   flex-direction: row-reverse;
 }
 
-/* Foto blob */
 .project-photo-blob {
   flex: 1;
   max-width: 400px;
@@ -79,26 +73,14 @@
   object-fit: cover;
 }
 
-/* Blob animato */
 @keyframes blobMorph {
-  0% {
-    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
-  }
-  25% {
-    border-radius: 70% 30% 50% 60% / 60% 65% 35% 40%;
-  }
-  50% {
-    border-radius: 55% 65% 40% 70% / 50% 60% 40% 60%;
-  }
-  75% {
-    border-radius: 65% 35% 60% 40% / 70% 50% 60% 50%;
-  }
-  100% {
-    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
-  }
+  0%   { border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; }
+  25%  { border-radius: 70% 30% 50% 60% / 60% 65% 35% 40%; }
+  50%  { border-radius: 55% 65% 40% 70% / 50% 60% 40% 60%; }
+  75%  { border-radius: 65% 35% 60% 40% / 70% 50% 60% 50%; }
+  100% { border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; }
 }
 
-/* Testo progetto */
 .project-text {
   flex: 1.2;
   color: white;
@@ -113,4 +95,37 @@
 .project-text p {
   font-size: 1.1rem;
   line-height: 1.8;
+}
+
+/* Aggiungi questo in fondo al tuo Projects.css, sostituendo il blocco @media (max-width: 768px) esistente */
+
+@media (max-width: 768px) {
+  .projects-list {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  /* Foto + testo affiancati, alternando lato come su desktop */
+  .project-section,
+  .project-section.reverse {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .project-section.reverse {
+    flex-direction: row-reverse;  /* mantieni alternanza anche su mobile */
+  }
+
+  .project-photo-blob {
+    width: 110px;
+    height: 110px;
+    max-width: 110px;
+    flex-shrink: 0;
+  }
+
+  .project-text { flex: 1; text-align: left; }
+  .project-text h2 { font-size: 1.1rem; margin-bottom: 0.4rem; line-height: 1.3; }
+  .project-text p  { font-size: 0.82rem; line-height: 1.6; }
 }

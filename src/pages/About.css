@@ -1,5 +1,5 @@
 .about-hero {
-  height: 25vh; /* banda più sottile */
+  height: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +17,6 @@
   margin-bottom: 1rem;
 }
 
-/* menu */
 .about-menu {
   display: flex;
   gap: 2rem;
@@ -34,35 +33,26 @@
   transition: color 0.3s ease;
 }
 
-.about-link:hover {
-  color:rgb(0, 0, 0);
-}
+.about-link:hover { color: rgb(0, 0, 0); }
+.about-link.active { font-weight: 700; color: rgb(0, 0, 0); }
 
-.about-link.active {
-  font-weight: 700;
-  color:rgb(0, 0, 0);
-}
+.desktop-only { display: flex; flex-direction: column; align-items: center; }
 
 .about-section {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;               /* distanza fra foto e testo */
-  padding: 4rem 6rem;      /* margini laterali */
-  width: 100%;
-  max-width: 1400px;       /* opzionale, per non diventare troppo larga */
-  margin: 0 auto;
-  margin-top: 2rem;
   align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4rem 6rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 2rem auto 0;
 }
 
-
-
-/* Foto dentro un blob animato */
 .about-photo-blob {
-  display: left;
   width: 450px;
   height: 450px;
+  flex-shrink: 0;
   overflow: hidden;
   animation: blobMorph 12s ease-in-out infinite alternate;
 }
@@ -71,108 +61,38 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
 }
 
-/* Animazione blob più marcata */
 @keyframes blobMorph {
-  0% {
-    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
-  }
-  25% {
-    border-radius: 70% 30% 50% 60% / 60% 65% 35% 40%;
-  }
-  50% {
-    border-radius: 55% 65% 40% 70% / 50% 60% 40% 60%;
-  }
-  75% {
-    border-radius: 65% 35% 60% 40% / 70% 50% 60% 50%;
-  }
-  100% {
-    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
-  }
+  0%   { border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; }
+  25%  { border-radius: 70% 30% 50% 60% / 60% 65% 35% 40%; }
+  50%  { border-radius: 55% 65% 40% 70% / 50% 60% 40% 60%; }
+  75%  { border-radius: 65% 35% 60% 40% / 70% 50% 60% 50%; }
+  100% { border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; }
 }
 
+.about-text { flex: 2; color: white; }
+.about-text h2 { font-size: 3rem; margin-bottom: 1rem; color: #fff; }
+.about-text p { font-size: 1.3rem; line-height: 1.6; margin-bottom: 1rem; }
 
-.about-text {
-  flex: 2;                 /* occupa 2 parti: più spazio al testo */
-  font-size: 2rem;   /* aumenta qui (1rem ≈ 16px) */
-  line-height: 1.9; 
-  color: white;
-}
+.about-extra { margin: 4rem 0; text-align: center; }
+.about-subtitle { font-size: 3rem; font-weight: 600; color: white; }
 
-.about-text h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.about-text p {
-  font-size: 1.3rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.about-extra {
-  margin: 4rem 0;         /* spazio sopra e sotto */
-  text-align: center;     /* centra il contenuto */
-}
-
-.about-subtitle {
-  font-size: 3rem;        /* stessa dimensione di "Chiara" */
-  font-weight: 600;
-  color: white;
-}
-
-/* ===== GRID CARDS ===== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: #f4f4f4;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card p {
-  padding: 1rem;
-  font-weight: 500;
-}
-
-/* ===== INFINITE SCROLL GALLERY ===== */
 .infinite-gallery {
   overflow: hidden;
-  max-width: 90%;        /* lascia bordi laterali */
-  margin: 3rem auto;     /* centra la galleria nel viewport */
-  border-radius: 12px;   /* opzionale: bordi stondati */
+  max-width: 90%;
+  margin: 3rem auto;
+  border-radius: 12px;
 }
 
 .scroll-track {
   display: flex;
-  width: calc(250px * 12);   /* 6 immagini x 2 copie */
+  width: calc(250px * 12);
   animation: scroll-right 40s linear infinite;
-  animation-play-state: paused; /* fermo di default */
+  animation-play-state: paused;
 }
 
-.infinite-gallery:hover .scroll-track {
-  animation-play-state: running; /* parte al hover */
-}
+.infinite-gallery:hover .scroll-track { animation-play-state: running; }
 
 .scroll-card {
   flex: 0 0 250px;
@@ -183,11 +103,7 @@
   overflow: hidden;
 }
 
-.scroll-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.scroll-card img { width: 100%; height: 100%; object-fit: cover; }
 
 .scroll-title {
   position: absolute;
@@ -204,12 +120,53 @@
   text-align: center;
 }
 
-/* Animazione verso destra */
 @keyframes scroll-right {
-  0% {
-    transform: translateX(-50%);
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ====== MOBILE ====== */
+@media (max-width: 768px) {
+  .about-hero {
+    height: auto;
+    padding: 1rem 0;
+    justify-content: center;
   }
-  100% {
-    transform: translateX(0);
+
+  .desktop-only {
+    display: none !important;
   }
+
+  /* CHIAVE: riga, non colonna — foto a sinistra, testo a destra */
+  .about-section {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    padding: 1.2rem 1rem !important;
+    gap: 1rem !important;
+    margin-top: 0.5rem !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .about-photo-blob {
+    width: 120px !important;
+    height: 120px !important;
+    min-width: 120px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .about-text {
+    flex: 1 !important;
+    text-align: left !important;
+    min-width: 0 !important; /* evita overflow del testo in flexbox */
+  }
+
+  .about-text h2 { font-size: 1.4rem !important; margin-bottom: 0.4rem !important; }
+  .about-text p  { font-size: 0.85rem !important; line-height: 1.6 !important; margin-bottom: 0.6rem !important; }
+
+  .about-extra   { margin: 1.5rem 0 !important; }
+  .about-subtitle { font-size: 1.5rem !important; padding: 0 1rem !important; }
+
+  .scroll-track { animation-play-state: running !important; }
+  .scroll-card  { flex: 0 0 150px !important; height: 190px !important; }
 }

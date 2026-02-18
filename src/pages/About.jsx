@@ -11,20 +11,18 @@ export default function About() {
     const vantaEffect = FOG({
       el: vantaRef.current,
       THREE: THREE,
-      highlightColor: 0x00ffff, // azzurro chiaro
-      midtoneColor: 0x00ff99,   // verde acqua
-      lowlightColor: 0x888888,  // grigio medio
-      baseColor: 0x000000,      // bianco come sfondo
+      highlightColor: 0x00ffff,
+      midtoneColor: 0x00ff99,
+      lowlightColor: 0x888888,
+      baseColor: 0x000000,
       blurFactor: 0.7,
       speed: 1.2,
     });
     return () => vantaEffect.destroy();
   }, []);
 
-
   return (
     <div className="about">
-      {/* HERO / BANDA IN ALTO */}
       <section ref={vantaRef} className="about-hero">
         <h1 className="about-title">About Me</h1>
         <nav className="about-menu">
@@ -35,7 +33,6 @@ export default function About() {
         </nav>
       </section>
 
-      {/* CONTENUTO DELLA PAGINA */}
       <section className="about-section">
         <div className="about-photo-blob">
           <img src="assets/laurea.jpg" alt="Chiara Sivieri" />
@@ -43,10 +40,10 @@ export default function About() {
         <div className="about-text">
           <h2>Chiara</h2>
           <p>
-            Curiosity has always been my driving force. I’m a Computer Scientist and currently a Master’s student
+            Curiosity has always been my driving force. I'm a Computer Scientist and currently a Master's student
             in Artificial Intelligence at the University of Bologna, where I explore how technology can shape the future.
-            Yet my interests go far beyond code and algorithms, I’m equally fascinated by literature and art.
-            I believe that knowledge is most powerful when it’s broad and interconnected,
+            Yet my interests go far beyond code and algorithms, I'm equally fascinated by literature and art.
+            I believe that knowledge is most powerful when it's broad and interconnected,
             and I strive to keep a 360° perspective in everything I do.
           </p>
           <p>
@@ -60,7 +57,6 @@ export default function About() {
         <h2 className="about-subtitle">What I Bring to the Table</h2>
       </section>
 
-      {/* PROJECTS GALLERY */}
       <section className="infinite-gallery">
         <div className="scroll-track">
           {[
@@ -78,8 +74,6 @@ export default function About() {
               <div className="scroll-title">{item.title}</div>
             </div>
           ))}
-
-          {/* seconda copia per effetto infinito */}
           {[
             { title: "unhealthy screentime", image: "assets/screentime.png" },
             { title: "fun facts", image: "assets/funfact.jpeg" },
@@ -97,7 +91,6 @@ export default function About() {
           ))}
         </div>
       </section>
-
     </div>
   );
 }

@@ -7,11 +7,7 @@ import "./Contacts.css";
 import GitHubProfile from '../components/GitHubProfile';
 
 export default function Contacts() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const vantaRef = useRef(null);
 
   useEffect(() => {
@@ -30,27 +26,14 @@ export default function Contacts() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Invia i dati del form tramite EmailJS
     emailjs.sendForm('service_pors6bm', 'template1', e.target)
-      .then((result) => {
-        console.log(result.text);
-        alert('Message Sent Successfully!');
-      }, (error) => {
-        console.log(error.text);
-        alert('Failed to send message.');
-      });
-
-    // Reset del form dopo l'invio
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+      .then(() => alert('Message Sent Successfully!'))
+      .catch(() => alert('Failed to send message.'));
+    setFormData({ name: "", email: "", message: "" });
   };
+
   return (
     <div className="about">
-      {/* HERO / BANDA IN ALTO (invariata) */}
       <section ref={vantaRef} className="about-hero">
         <h1 className="about-title">Contacts</h1>
         <nav className="about-menu">
@@ -61,15 +44,11 @@ export default function Contacts() {
         </nav>
       </section>
 
-      {/* LINKEDIN SECTION (ora è sotto e al centro) */}
       <section className="linkedin-section">
         <p>Follow me on <a href="https://www.linkedin.com/in/chiara-sivieri-604099332" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
       </section>
 
-      {/* ======== NUOVO CONTENITORE A DUE COLONNE ======== */}
       <div className="contact-container">
-
-        {/* --- Colonna Sinistra: Form --- */}
         <section className="contact-form-column">
           <h2>Get in Touch</h2>
           <form onSubmit={handleSubmit}>
@@ -99,16 +78,12 @@ export default function Contacts() {
             <button type="submit">Send Message</button>
           </form>
         </section>
-        
-        {/* --- Colonna Destra: GitHub --- */}
+
         <section className="github-profile-column">
           <h2>Find Me on GitHub</h2>
-          <GitHubProfile username="chiarasivieri" /> 
+          <GitHubProfile username="chiarasivieri" />
         </section>
-
       </div>
-      {/* =================================================== */}
-
     </div>
   );
 }
