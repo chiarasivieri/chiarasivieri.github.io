@@ -1,8 +1,30 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import FOG from "vanta/dist/vanta.fog.min";
 import "./Projects.css";
+
+function SkillsDropdown({ skills }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      className={`skills-dropdown ${open ? "open" : ""}`}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onClick={() => setOpen(!open)}
+    >
+      <button className="skills-trigger">
+        Skills <span className="skills-arrow">▾</span>
+      </button>
+      <div className="skills-menu">
+        {skills.map((skill, i) => (
+          <span key={i} className="skills-item">{skill}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Projects() {
   const vantaRef = useRef(null);
@@ -27,18 +49,21 @@ export default function Projects() {
       description:
         "Design and implementation of a computer vision model using transfer learning on a pre-trained neural network for the recognition of points of interest at the University of Ferrara, with the development of a complete web application (backend and frontend) to provide the user interface.",
       image: "assets/project1.JPG",
+      skills: ["Computer Vision", "Transfer Learning", "Fine Tuning", "PyTorch", "React", "FastAPI", "Python"],
     },
     {
       title: "Predictive Analysis of Clinical Trial Failures",
       description:
         "Internship at the University of Ferrara focused on developing a Machine Learning model aimed at predicting the failure of clinical trials. The dataset used was large and included numerous clinical studies with unstructured textual descriptions. Implemented Natural Language Processing (NLP) techniques and developed an LSTM neural network for predictive model.",
       image: "assets/Project2.png",
+      skills: ["NLP", "LSTM", "Machine Learning", "Python", "Pandas", "Scikit-learn", "Tensorflow", "Keras"],
     },
     {
       title: "Wedding Websites",
       description:
         "Developed websites for private clients. Responsible for the design, graphical layout, and technical implementation of an interactive and multimedia website.",
       image: "assets/project3.jpg",
+      skills: ["HTML", "CSS", "JavaScript", "UI Design", "Responsive Design", "Tailwind CSS", "PHP"],
     },
   ];
 
@@ -64,7 +89,10 @@ export default function Projects() {
               <img src={proj.image} alt={proj.title} />
             </div>
             <div className="project-text">
-              <h2>{proj.title}</h2>
+              <div className="project-title-row">
+                <h2>{proj.title}</h2>
+                <SkillsDropdown skills={proj.skills} />
+              </div>
               <p>{proj.description}</p>
             </div>
           </section>
