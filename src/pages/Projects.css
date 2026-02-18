@@ -1,4 +1,3 @@
-/* Hero */
 .projects-hero {
   height: 25vh;
   display: flex;
@@ -36,10 +35,6 @@
 .projects-link:hover { color: rgb(0, 0, 0); }
 .projects-link.active { font-weight: 700; color: rgb(0, 0, 0); }
 
-/* Show/hide helpers */
-.desktop-only { display: flex; flex-direction: column; align-items: center; }
-
-/* Progetti */
 .projects-list {
   max-width: 1200px;
   margin: 4rem auto;
@@ -54,9 +49,7 @@
   margin-bottom: 5rem;
 }
 
-.project-section.reverse {
-  flex-direction: row-reverse;
-}
+.project-section.reverse { flex-direction: row-reverse; }
 
 .project-photo-blob {
   flex: 1;
@@ -67,11 +60,7 @@
   animation: blobMorph 12s ease-in-out infinite alternate;
 }
 
-.project-photo-blob img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.project-photo-blob img { width: 100%; height: 100%; object-fit: cover; }
 
 @keyframes blobMorph {
   0%   { border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; }
@@ -81,31 +70,67 @@
   100% { border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%; }
 }
 
-.project-text {
-  flex: 1.2;
-  color: white;
+.project-text { flex: 1.2; color: white; }
+.project-text h2 { font-size: 2rem; margin-bottom: 1rem; font-family: "Playfair Display", serif; }
+.project-text p { font-size: 1.1rem; line-height: 1.8; }
+
+/* SKILL TAGS */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
 }
 
-.project-text h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-family: "Playfair Display", serif;
+.skill-tag {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.12);
+  transition: background 0.25s ease, transform 0.2s ease;
+  cursor: default;
 }
 
-.project-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+.skill-tag:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
 }
 
-/* Aggiungi questo in fondo al tuo Projects.css, sostituendo il blocco @media (max-width: 768px) esistente */
-
+/* ====== MOBILE ====== */
 @media (max-width: 768px) {
+  .projects-hero {
+    height: auto;
+    padding: 1.2rem 1rem;
+  }
+
+  .projects-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .projects-menu {
+    gap: 0.8rem !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .projects-link {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.8px !important;
+  }
+
   .projects-list {
     margin: 1.5rem auto;
     padding: 0 1rem;
   }
 
-  /* Foto + testo affiancati, alternando lato come su desktop */
   .project-section,
   .project-section.reverse {
     flex-direction: row;
@@ -114,9 +139,7 @@
     margin-bottom: 2.5rem;
   }
 
-  .project-section.reverse {
-    flex-direction: row-reverse;  /* mantieni alternanza anche su mobile */
-  }
+  .project-section.reverse { flex-direction: row-reverse; }
 
   .project-photo-blob {
     width: 110px;
@@ -125,7 +148,10 @@
     flex-shrink: 0;
   }
 
-  .project-text { flex: 1; text-align: left; }
+  .project-text { flex: 1; text-align: left; min-width: 0; }
   .project-text h2 { font-size: 1.1rem; margin-bottom: 0.4rem; line-height: 1.3; }
   .project-text p  { font-size: 0.82rem; line-height: 1.6; }
+
+  .skill-tags { gap: 0.4rem; margin-top: 0.8rem; }
+  .skill-tag  { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
 }

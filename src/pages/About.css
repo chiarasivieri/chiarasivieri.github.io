@@ -129,15 +129,29 @@
 @media (max-width: 768px) {
   .about-hero {
     height: auto;
-    padding: 1rem 0;
+    padding: 1.2rem 1rem;
     justify-content: center;
+  }
+
+  .about-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .about-menu {
+    gap: 0.8rem !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .about-link {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.8px !important;
   }
 
   .desktop-only {
     display: none !important;
   }
 
-  /* CHIAVE: riga, non colonna — foto a sinistra, testo a destra */
   .about-section {
     flex-direction: row !important;
     align-items: flex-start !important;
@@ -158,7 +172,7 @@
   .about-text {
     flex: 1 !important;
     text-align: left !important;
-    min-width: 0 !important; /* evita overflow del testo in flexbox */
+    min-width: 0 !important;
   }
 
   .about-text h2 { font-size: 1.4rem !important; margin-bottom: 0.4rem !important; }

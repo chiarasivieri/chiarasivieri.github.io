@@ -1,4 +1,3 @@
-/* HERO */
 .about-hero {
   height: 25vh;
   display: flex;
@@ -36,10 +35,6 @@
 .about-link:hover { color: rgb(0, 0, 0); }
 .about-link.active { font-weight: 700; color: rgb(0, 0, 0); }
 
-/* Show/hide helpers */
-.desktop-only { display: flex; flex-direction: column; align-items: center; }
-
-/* DUE COLONNE */
 .contact-container {
   display: flex;
   flex-direction: row-reverse;
@@ -72,7 +67,6 @@
   color: #c7dcec;
 }
 
-/* FORM */
 .contact-form-column form {
   display: flex;
   flex-direction: column;
@@ -111,9 +105,7 @@
   margin-top: 10px;
 }
 
-.contact-form-column button:hover {
-  background-color: #5b86e5;
-}
+.contact-form-column button:hover { background-color: #5b86e5; }
 
 .github-profile-column .github-card {
   margin: 0;
@@ -121,7 +113,6 @@
   font-family: 'Raleway', serif;
 }
 
-/* LINKEDIN */
 .linkedin-section {
   text-align: center;
   margin-top: 20px;
@@ -129,17 +120,26 @@
   color: white;
 }
 
-/* ===========================
-   MOBILE RESPONSIVE
-   =========================== */
+/* ====== MOBILE ====== */
 @media (max-width: 768px) {
   .about-hero {
     height: auto;
-    padding: 1rem 0;
+    padding: 1.2rem 1rem;
   }
 
-  .desktop-only {
-    display: none !important;
+  .about-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .about-menu {
+    gap: 0.8rem !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .about-link {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.8px !important;
   }
 
   .contact-container {
