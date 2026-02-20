@@ -48,7 +48,7 @@ export default function Projects() {
       title: "Aegis",
       description:
         "Design and development of a cybersecurity ecosystem aimed at protecting digital media from unauthorized distribution. The system implements a forensic steganography engine capable of embedding invisible, non-repudiable signatures. Resilience against aggressive manipulation, such as cropping, compression, or geometric attacks, is achieved through a proprietary algorithm combining Discrete Cosine Transform (DCT) with Spatial Redundancy (Tiling) and a Grid Search recovery system. The architecture integrates a cross-platform mobile application for secure transmission and a Python backend based on Security-by-Design principles and Zero Trust protocols.",
-      image: "assets/aegis-project.png", 
+      image: "assets/aegisproject.png", 
       skills: ["Python", "Flutter", "Dart", "Flask", "OpenCV", "Digital Forensics", "Steganography", "Secure Coding", "UI/UX Design", "REST APIs"],
     },
 
