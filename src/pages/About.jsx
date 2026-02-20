@@ -82,9 +82,28 @@ export default function About() {
         </div>
       </section>
 
+      {/* CV SECTION */}
+      <section className="cv-section">
+        <p className="cv-intro">Still interested? Check my Curriculum Vitae</p>
+        <div className="cv-buttons">
+          <div className="cv-group">
+            <span className="cv-lang">🇬🇧 English</span>
+            <div className="cv-actions">
+              <a href="/assets/Chiara_Sivieri_CV_ENG.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">Preview</a>
+            </div>
+          </div>
+          <div className="cv-group">
+            <span className="cv-lang">🇮🇹 Italiano</span>
+            <div className="cv-actions">
+              <a href="/assets/CHIARA_SIVIERI_CV_IT.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">Preview</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* GALLERY */}
       <section className="about-extra">
-        <h2 className="about-subtitle">What I Bring to the Table</h2>
+        <h2 className="about-subtitle">What I personally bring to the table</h2>
       </section>
 
       <section className="infinite-gallery">
@@ -122,5 +141,6 @@ export default function About() {
         </div>
       </section>
     </div>
+  
   );
 }
