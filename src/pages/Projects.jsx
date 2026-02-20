@@ -48,7 +48,7 @@ export default function Projects() {
       title: "Aegis",
       description:
         "Design and development of a cybersecurity ecosystem aimed at protecting digital media from unauthorized distribution. The system implements a forensic steganography engine capable of embedding invisible, non-repudiable signatures. Resilience against aggressive manipulation, such as cropping, compression, or geometric attacks, is achieved through a proprietary algorithm combining Discrete Cosine Transform (DCT) with Spatial Redundancy (Tiling) and a Grid Search recovery system. The architecture integrates a cross-platform mobile application for secure transmission and a Python backend based on Security-by-Design principles and Zero Trust protocols.",
-      image: "assets/project4.jpg", 
+      image: "/assets/project4.jpg", 
       skills: ["Python", "Flutter", "Dart", "Flask", "OpenCV", "Digital Forensics", "Steganography", "Secure Coding", "UI/UX Design", "REST APIs"],
     },
 
@@ -56,21 +56,21 @@ export default function Projects() {
       title: "ArchivIA",
       description:
         "Design and implementation of a computer vision model using transfer learning on a pre-trained neural network for the recognition of points of interest at the University of Ferrara, with the development of a complete web application (backend and frontend) to provide the user interface.",
-      image: "assets/project1.JPG",
+      image: "/assets/project1.JPG",
       skills: ["Computer Vision", "Transfer Learning", "Fine Tuning", "PyTorch", "React", "FastAPI", "Python"],
     },
     {
       title: "Predictive Analysis of Clinical Trial Failures",
       description:
         "Internship at the University of Ferrara focused on developing a Machine Learning model aimed at predicting the failure of clinical trials. The dataset used was large and included numerous clinical studies with unstructured textual descriptions. Implemented Natural Language Processing (NLP) techniques and developed an LSTM neural network for predictive model.",
-      image: "assets/Project2.png",
+      image: "/assets/Project2.png",
       skills: ["NLP", "LSTM", "Machine Learning", "Python", "Pandas", "Scikit-learn", "Tensorflow", "Keras"],
     },
     {
       title: "Wedding Websites",
       description:
         "Developed websites for private clients. Responsible for the design, graphical layout, and technical implementation of an interactive and multimedia website.",
-      image: "assets/project3.jpg",
+      image: "/assets/project3.jpg",
       skills: ["HTML", "CSS", "JavaScript", "React","UI Design", "Responsive Design", "Tailwind CSS", "PHP"],
     },
   ];
