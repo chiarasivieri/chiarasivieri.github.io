@@ -33,9 +33,10 @@ export default function About() {
         </nav>
       </section>
 
+      {/* CHI SONO */}
       <section className="about-section">
         <div className="about-photo-blob">
-          <img src="assets/laurea.jpg" alt="Chiara Sivieri" />
+          <img src="/assets/laurea.jpg" alt="Chiara Sivieri" />
         </div>
         <div className="about-text">
           <h2>Chiara</h2>
@@ -53,6 +54,35 @@ export default function About() {
         </div>
       </section>
 
+      {/* CITAZIONE */}
+      <section className="quote-break">
+        <div className="quote-wrapper">
+          <blockquote className="ghibli-quote">
+            "Engineers turn dreams into reality."
+          </blockquote>
+          <cite>— The Wind Rises (2013)</cite>
+        </div>
+      </section>
+
+      {/* OBIETTIVI */}
+      <section className="about-mission">
+        <div className="mission-content">
+          <h2 className="mission-title">The next Goal</h2>
+          <div className="mission-grid">
+            <div className="mission-card">
+              <p>
+                I aim to apply AI to biomedical data analysis, 
+                an area where machine learning still has significant room for development. 
+                I’m particularly interested in extracting meaningful patterns from complex biosignals, 
+                using rigorous data science to generate clinically relevant insights. I value methodological 
+                soundness and reproducibility, especially in contexts where model reliability directly affects real-world decisions.
+              </p>
+            </div>
+            </div>
+        </div>
+      </section>
+
+      {/* GALLERY */}
       <section className="about-extra">
         <h2 className="about-subtitle">What I Bring to the Table</h2>
       </section>
@@ -60,14 +90,14 @@ export default function About() {
       <section className="infinite-gallery">
         <div className="scroll-track">
           {[
-            { title: "unhealthy screentime", image: "assets/screentime.png" },
-            { title: "fun facts", image: "assets/funfact.jpeg" },
-            { title: "extreme awkwardness", image: "assets/awkward.jpeg" },
-            { title: "unfunny jokes", image: "assets/unfunny.png" },
-            { title: "headache", image: "assets/headache.jpg" },
-            { title: "Coca Cola", image: "assets/cocacola.jpeg" },
-            { title: "Random Knowledge", image: "assets/random.jpeg" },
-            { title: "Lack of Sleep", image: "assets/sleep.webp" },
+            { title: "unhealthy screentime", image: "/assets/screentime.png" },
+            { title: "fun facts", image: "/assets/funfact.jpeg" },
+            { title: "extreme awkwardness", image: "/assets/awkward.jpeg" },
+            { title: "unfunny jokes", image: "/assets/unfunny.png" },
+            { title: "headache", image: "/assets/headache.jpg" },
+            { title: "Coca Cola", image: "/assets/cocacola.jpeg" },
+            { title: "Random Knowledge", image: "/assets/random.jpeg" },
+            { title: "Lack of Sleep", image: "/assets/sleep.webp" },
           ].map((item, i) => (
             <div key={i} className="scroll-card">
               <img src={item.image} alt={item.title} />
@@ -75,14 +105,14 @@ export default function About() {
             </div>
           ))}
           {[
-            { title: "unhealthy screentime", image: "assets/screentime.png" },
-            { title: "fun facts", image: "assets/funfact.jpeg" },
-            { title: "extreme awkwardness", image: "assets/awkward.jpeg" },
-            { title: "unfunny jokes", image: "assets/unfunny.png" },
-            { title: "headache", image: "assets/headache.jpg" },
-            { title: "Coca Cola", image: "assets/cocacola.jpeg" },
-            { title: "Random Knowledge", image: "assets/random.jpeg" },
-            { title: "Lack of Sleep", image: "assets/sleep.webp" },
+            { title: "unhealthy screentime", image: "/assets/screentime.png" },
+            { title: "fun facts", image: "/assets/funfact.jpeg" },
+            { title: "extreme awkwardness", image: "/assets/awkward.jpeg" },
+            { title: "unfunny jokes", image: "/assets/unfunny.png" },
+            { title: "headache", image: "/assets/headache.jpg" },
+            { title: "Coca Cola", image: "/assets/cocacola.jpeg" },
+            { title: "Random Knowledge", image: "/assets/random.jpeg" },
+            { title: "Lack of Sleep", image: "/assets/sleep.webp" },
           ].map((item, i) => (
             <div key={`dup-${i}`} className="scroll-card">
               <img src={item.image} alt={item.title} />
