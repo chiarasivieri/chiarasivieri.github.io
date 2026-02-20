@@ -152,33 +152,34 @@
     display: none !important;
   }
 
+  /* Stesso approccio di Projects: display block + float */
   .about-section {
-    flex-direction: row !important;
-    align-items: flex-start !important;
+    display: block !important;
     padding: 1.2rem 1rem !important;
-    gap: 1rem !important;
     margin-top: 0.5rem !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
 
   .about-photo-blob {
+    float: left !important;
     width: 120px !important;
     height: 120px !important;
-    min-width: 120px !important;
+    min-width: unset !important;
     flex-shrink: 0 !important;
+    margin: 0 1rem 0.5rem 0 !important;
   }
 
   .about-text {
-    flex: 1 !important;
-    text-align: left !important;
+    color: white !important;
     min-width: 0 !important;
+    overflow: visible !important;
   }
 
   .about-text h2 { font-size: 1.4rem !important; margin-bottom: 0.4rem !important; }
-  .about-text p  { font-size: 0.85rem !important; line-height: 1.6 !important; margin-bottom: 0.6rem !important; }
+  .about-text p  { font-size: 0.85rem !important; line-height: 1.6 !important; margin-bottom: 0.6rem !important; overflow-wrap: break-word !important; word-break: break-word !important; }
 
-  .about-extra   { margin: 1.5rem 0 !important; }
+  .about-extra   { margin: 1.5rem 0 !important; clear: both !important; }
   .about-subtitle { font-size: 1.5rem !important; padding: 0 1rem !important; }
 
   .scroll-track { animation-play-state: running !important; }
