@@ -73,7 +73,6 @@
 .project-text { flex: 1.2; color: white; }
 .project-text p { font-size: 1.1rem; line-height: 1.8; }
 
-/* Titolo + dropdown sulla stessa riga */
 .project-title-row {
   display: flex;
   align-items: center;
@@ -113,9 +112,7 @@
   gap: 0.4rem;
 }
 
-.skills-trigger:hover {
-  background: rgba(255, 255, 255, 0.14);
-}
+.skills-trigger:hover { background: rgba(255, 255, 255, 0.14); }
 
 .skills-arrow {
   font-size: 0.7rem;
@@ -123,9 +120,7 @@
   display: inline-block;
 }
 
-.skills-dropdown.open .skills-arrow {
-  transform: rotate(180deg);
-}
+.skills-dropdown.open .skills-arrow { transform: rotate(180deg); }
 
 .skills-menu {
   position: absolute;
@@ -163,7 +158,15 @@
 
 .skills-item:last-child { border-bottom: none; }
 
-/* ====== MOBILE ====== */
+.project-text {
+  overflow: visible !important;
+}
+
+.project-section {
+  overflow: visible !important;
+}
+
+/* ====== MOBILE: float layout ====== */
 @media (max-width: 768px) {
   .projects-hero {
     height: auto;
@@ -187,30 +190,53 @@
 
   .projects-list {
     margin: 1.5rem auto;
-    padding: 0 1rem;
+    padding: 0 1.2rem;
   }
 
+  /* Su mobile: float invece di flexbox */
   .project-section,
   .project-section.reverse {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.2rem;
-    margin-bottom: 2.5rem;
+    display: block;        /* disabilita flex */
+    margin-bottom: 3rem;
+    overflow: hidden;      /* clearfix per il float */
   }
 
-  .project-section.reverse { flex-direction: row-reverse; }
-
-  .project-photo-blob {
-    width: 110px;
-    height: 110px;
-    max-width: 110px;
-    flex-shrink: 0;
+  .project-section .project-photo-blob {
+    float: left;
+    width: 130px;
+    height: 130px;
+    max-width: 130px;
+    margin: 0 1rem 0.5rem 0;
+    flex: none;
   }
 
-  .project-text { flex: 1; text-align: left; min-width: 0; }
-  .project-title-row { gap: 0.6rem; margin-bottom: 0.5rem; }
-  .project-title-row h2 { font-size: 1.1rem; line-height: 1.3; }
-  .project-text p { font-size: 0.82rem; line-height: 1.6; }
+  /* Progetto alternato: foto a destra */
+  .project-section.reverse .project-photo-blob {
+    float: right;
+    margin: 0 0 0.5rem 1rem;
+  }
+
+  .project-text {
+    /* non serve width, il float ci pensa */
+    color: white;
+    min-width: 0;
+  }
+
+  .project-title-row {
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .project-title-row h2 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .project-text p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
 
   .skills-trigger { font-size: 0.7rem; padding: 0.35rem 0.7rem; }
   .skills-item    { font-size: 0.78rem; padding: 0.55rem 1rem; }
