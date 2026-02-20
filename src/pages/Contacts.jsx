@@ -8,9 +8,12 @@ import GitHubProfile from '../components/GitHubProfile';
 
 export default function Contacts() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
   const vantaRef = useRef(null);
 
   useEffect(() => {
+    emailjs.init('slfVIsE9hXXD2VtnE');
+
     const vantaEffect = FOG({
       el: vantaRef.current,
       THREE: THREE,
@@ -26,8 +29,11 @@ export default function Contacts() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_pors6bm', 'template1', e.target)
-      .then(() => alert('Message Sent Successfully!'))
+    emailjs.sendForm('service_kynsooo', 'template_6v078jf', e.target)
+      .then(() => {
+        setSent(true);
+        setTimeout(() => setSent(false), 4000);
+      })
       .catch(() => alert('Failed to send message.'));
     setFormData({ name: "", email: "", message: "" });
   };
@@ -76,6 +82,7 @@ export default function Contacts() {
               required
             />
             <button type="submit">Send Message</button>
+            {sent && <p className="sent-message">✓ Email sent!</p>}
           </form>
         </section>
 

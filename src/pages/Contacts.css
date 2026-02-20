@@ -120,6 +120,13 @@
   color: white;
 }
 
+.sent-message {
+  color: #3b8a3b;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
 /* ====== MOBILE ====== */
 @media (max-width: 768px) {
   .about-hero {
