@@ -103,7 +103,7 @@ export default function About() {
 
       {/* GALLERY */}
       <section className="about-extra">
-        <h2 className="about-subtitle">What I bring to the table</h2>
+        <h2 className="about-subtitle">Although, behind all those algorithms and data, that's what I bring to the table.</h2>
       </section>
 
       <section className="infinite-gallery">

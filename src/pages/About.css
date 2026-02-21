@@ -10,11 +10,31 @@
   overflow: hidden;
 }
 
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, rgb(28, 27, 27));
+  pointer-events: none;
+}
+
 .about-title {
   font-size: 2.5rem;
   font-family: 'Libre Baskerville', serif;
   font-weight: bold;
   margin-bottom: 1rem;
+}
+
+.about-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Libre Baskerville', serif;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .about-menu {
@@ -171,7 +191,6 @@
 
 
 .about-extra { margin: 4rem 0 2rem; text-align: center; }
-.about-subtitle { font-size: 3rem; font-weight: 600; color: white; }
 
 .infinite-gallery {
   overflow: hidden;
@@ -286,6 +305,10 @@
 
 .cv-btn-download {
   background: rgba(255, 255, 255, 0.12);
+}
+
+.about {
+  padding-bottom: 4rem;
 }
 
 @media (max-width: 768px) {
