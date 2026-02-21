@@ -10,7 +10,6 @@
   overflow: hidden;
 }
 
-
 .about-hero::after {
   content: '';
   position: absolute;
@@ -27,14 +26,6 @@
   font-family: 'Libre Baskerville', serif;
   font-weight: bold;
   margin-bottom: 1rem;
-}
-
-.about-subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  font-style: italic;
-  font-family: 'Libre Baskerville', serif;
-  color: rgba(255, 255, 255, 0.7);
 }
 
 .about-menu {
@@ -143,8 +134,8 @@
 }
 
 .mission-title {
-  font-size: 2.5rem;
-  /*font-family: 'Libre Baskerville', serif;*/
+  font-size: 1.8rem;
+  font-family: 'Libre Baskerville', serif;
   color: white;
   text-align: left;
   margin-bottom: 2rem;
@@ -173,14 +164,14 @@
 }
 
 .mission-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.95);
   margin-bottom: 1rem;
 }
 
 .mission-card p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.75);
 }
@@ -189,8 +180,83 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
+/* CV SECTION */
+.cv-section {
+  text-align: center;
+  padding: 0.5rem 2rem 4rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
 
+.cv-intro {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 2rem;
+}
+
+.cv-buttons {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cv-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.cv-lang {
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.cv-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.cv-btn {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.5rem 1.1rem;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.cv-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.cv-btn-download {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* GALLERY */
 .about-extra { margin: 4rem 0 2rem; text-align: center; }
+
+.about-subtitle {
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Libre Baskerville', serif;
+  color: rgba(255, 255, 255, 0.7);
+}
 
 .infinite-gallery {
   overflow: hidden;
@@ -239,84 +305,9 @@
   100% { transform: translateX(0); }
 }
 
-/* CV SECTION */
-.cv-section {
-  text-align: center;
-  padding: 0.5rem 2rem 4rem; 
-  max-width: 700px;
-  margin: 0 auto;
-}
+.about { padding-bottom: 4rem; }
 
-.cv-intro {
-  font-family: 'Libre Baskerville', serif;
-  font-style: italic;
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 2rem;
-}
-
-.cv-buttons {
-  display: flex;
-  gap: 3rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.cv-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.cv-lang {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-}
-
-.cv-actions {
-  display: flex;
-  gap: 0.6rem;
-}
-
-.cv-btn {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 0.5rem 1.1rem;
-  text-decoration: none;
-  transition: background 0.25s ease, transform 0.2s ease;
-}
-
-.cv-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  transform: translateY(-2px);
-}
-
-.cv-btn-download {
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.about {
-  padding-bottom: 4rem;
-}
-
-@media (max-width: 768px) {
-  .cv-section { padding: 1.5rem 1rem 3rem; }
-  .cv-intro { font-size: 1rem; }
-  .cv-buttons { gap: 2rem; }
-}
-
+/* ====== MOBILE ====== */
 @media (max-width: 768px) {
   .about-hero {
     height: auto;
@@ -357,15 +348,19 @@
 
   /* Obiettivi */
   .about-mission { padding: 1.5rem 1rem; }
-  .mission-title { font-size: 1.6rem; margin-bottom: 1.5rem; }
+  .mission-title { font-size: 1.4rem; margin-bottom: 1.5rem; }
   .mission-grid { grid-template-columns: 1fr; gap: 1rem; }
   .mission-card { padding: 1.2rem; }
-  .mission-card h3 { font-size: 1.1rem; }
   .mission-card p { font-size: 0.88rem; }
+
+  /* CV */
+  .cv-section { padding: 1.5rem 1rem 3rem; }
+  .cv-intro { font-size: 1.3rem; }
+  .cv-buttons { gap: 2rem; }
 
   /* Gallery */
   .about-extra { margin: 1.5rem 0 1rem !important; clear: both !important; }
-  .about-subtitle { font-size: 0.8rem !important; padding: 0 1rem !important; }
+  .about-subtitle { font-size: 1rem !important; padding: 0 1rem !important; }
   .scroll-track { animation-play-state: running !important; }
   .scroll-card  { flex: 0 0 150px !important; height: 190px !important; }
 }
