@@ -365,7 +365,7 @@
 
   /* Gallery */
   .about-extra { margin: 1.5rem 0 1rem !important; clear: both !important; }
-  .about-subtitle { font-size: 1.5rem !important; padding: 0 1rem !important; }
+  .about-subtitle { font-size: 0.8rem !important; padding: 0 1rem !important; }
   .scroll-track { animation-play-state: running !important; }
   .scroll-card  { flex: 0 0 150px !important; height: 190px !important; }
 }
