@@ -71,11 +71,13 @@ export default function About() {
           <div className="mission-grid">
             <div className="mission-card">
               <p>
-                I aim to apply AI to biomedical data analysis, 
-                an area where machine learning still has significant room for development. 
-                I’m particularly interested in extracting meaningful patterns from complex biosignals, 
-                using rigorous data science to generate clinically relevant insights. I value methodological 
-                soundness and reproducibility, especially in contexts where model reliability directly affects real-world decisions.
+                Biomedical data analysis is an area where machine learning still has enormous, 
+                largely unexplored potential. I'm drawn to the challenge of extracting meaningful patterns from complex biosignals, 
+                where the complexity of the data reflects the complexity of the human body itself. It's a field where methodological 
+                rigor isn't optional: when model reliability directly affects clinical decisions, there's no room for shortcuts. 
+                Beyond the technical side, this kind of research has real stakes, not just for individual patients, 
+                but for how medicine evolves as a whole. That's exactly the kind of environment I want to work in, where the technical
+                challenges are hard and the results actually matter. 
               </p>
             </div>
             </div>
