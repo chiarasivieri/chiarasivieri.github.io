@@ -97,7 +97,7 @@ export default function About() {
           <div className="cv-group">
             <span className="cv-lang">🇮🇹 Italiano</span>
             <div className="cv-actions">
-              <a href="/assets/CHIARA_SIVIERI_CV_IT.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">Preview</a>
+              <a href="/assets/CHIARA_SIVIERI_CV.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">Preview</a>
             </div>
           </div>
         </div>
