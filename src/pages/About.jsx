@@ -150,7 +150,7 @@ export default function About() {
             can shape the future.
           </p>
           <p>
-            Yet my interests go far beyond code and algorithms — I'm equally fascinated by literature and art.
+            Yet my interests go far beyond code and algorithms, I'm equally fascinated by literature and art.
             I believe that knowledge is most powerful when it's broad and interconnected, and I strive to keep
             a 360° perspective in everything I do.
           </p>
@@ -183,7 +183,7 @@ export default function About() {
             where the complexity of the data reflects the complexity of the human body itself. It's a field
             where methodological rigor isn't optional: when model reliability directly affects clinical
             decisions, there's no room for shortcuts. That's exactly the kind of environment I want to work
-            in — where the technical challenges are hard and the results actually matter.
+            in, where the technical challenges are hard and the results actually matter.
           </p>
         </div>
       </section>
