@@ -162,7 +162,6 @@
   gap: 3rem;
   align-items: flex-start;
   padding: 3rem 3rem;
-  max-width: 1600px;
 }
 
 /* blob photo */
@@ -237,7 +236,8 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 2rem 2.5rem;
-  max-width: 680px;
+  text-align: center;
+  
 }
 
 .about-quote-card::before {
