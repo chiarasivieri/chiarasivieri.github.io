@@ -1,19 +1,17 @@
-/* Base full height for Tailwind */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Sistema di font e rendering */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  font-weight: 300;
+  font-size: 16px;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color:rgb(28, 27, 27);
+  color: #0f0f0f;
+  background-color: #fafaf8;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,54 +19,24 @@ html, body, #root {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Link */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Titoli */
-h1 {
-  font-size: 3.2em;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 300;
   line-height: 1.1;
 }
 
-/* Pulsanti */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  font-size: inherit;
   font-family: inherit;
-  background-color: #1a1a1a;
+  font-weight: inherit;
+  background: none;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* Modalità chiara */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: rgba(255, 255, 255, 0.87);
-    background-color: rgb(28, 27, 27);
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
 }

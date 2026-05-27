@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
-import FOG from "vanta/dist/vanta.fog.min";
+import { useState, useRef, useEffect } from "react";
 import "./Projects.css";
 
 function SkillsDropdown({ skills }) {
@@ -12,10 +10,10 @@ function SkillsDropdown({ skills }) {
       className={`skills-dropdown ${open ? "open" : ""}`}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
-      onClick={() => setOpen(!open)}
+      onClick={() => setOpen(o => !o)}
     >
       <button className="skills-trigger">
-        Skills <span className="skills-arrow">▾</span>
+        skills <span className="skills-arrow">▾</span>
       </button>
       <div className="skills-menu">
         {skills.map((skill, i) => (
@@ -26,86 +24,118 @@ function SkillsDropdown({ skills }) {
   );
 }
 
+const projects = [
+  {
+    title: "Aegis",
+    category: "cybersecurity",
+    description:
+      "Design and development of a cybersecurity ecosystem aimed at protecting digital media from unauthorized distribution. The system implements a forensic steganography engine capable of embedding invisible, non-repudiable signatures. Resilience against aggressive manipulation is achieved through a proprietary algorithm combining DCT with Spatial Redundancy (Tiling) and a Grid Search recovery system.",
+    image: "/assets/project4.jpg",
+    skills: ["Python", "Flutter", "Dart", "Flask", "OpenCV", "Digital Forensics", "Steganography", "Secure Coding", "UI/UX Design", "REST APIs"],
+  },
+  {
+    title: "ArchivIA",
+    category: "computer vision",
+    description:
+      "Design and implementation of a computer vision model using transfer learning on a pre-trained neural network for the recognition of points of interest at the University of Ferrara, with the development of a complete web application (backend and frontend) to provide the user interface.",
+    image: "/assets/project1.JPG",
+    skills: ["Computer Vision", "Transfer Learning", "Fine Tuning", "PyTorch", "React", "FastAPI", "Python"],
+  },
+  {
+    title: "Clinical Trial Prediction",
+    category: "machine learning",
+    description:
+      "Internship at the University of Ferrara focused on developing a Machine Learning model aimed at predicting the failure of clinical trials. Implemented Natural Language Processing (NLP) techniques and developed an LSTM neural network on large datasets with unstructured textual descriptions.",
+    image: "/assets/Project2.png",
+    skills: ["NLP", "LSTM", "Machine Learning", "Python", "Pandas", "Scikit-learn", "Tensorflow", "Keras"],
+  },
+  {
+    title: "Wedding Websites",
+    category: "web development",
+    description:
+      "Developed websites for private clients. Responsible for the design, graphical layout, and technical implementation of interactive and multimedia websites.",
+    image: "/assets/project3.jpg",
+    skills: ["HTML", "CSS", "JavaScript", "React", "UI Design", "Responsive Design", "Tailwind CSS", "PHP"],
+  },
+];
+
 export default function Projects() {
-  const vantaRef = useRef(null);
+
+      const [typedText, setTypedText] = useState('');
+  const [typedSub, setTypedSub] = useState('');
 
   useEffect(() => {
-    const vantaEffect = FOG({
-      el: vantaRef.current,
-      THREE: THREE,
-      highlightColor: "#D2AEFF",
-      midtoneColor: "#AEDBFF",
-      lowlightColor: "#FFD3AE",
-      baseColor: "#000000",
-      blurFactor: 0.7,
-      speed: 1.2,
-    });
-    return () => vantaEffect.destroy();
+    const title = 'Projects';
+    const sub = 'Ideas brought to life, one project at a time';
+    const CHAR_DELAY = 80;
+    const SUB_DELAY = 50;
+    const timeouts = [];
+    const schedule = (fn, delay) => { const id = setTimeout(fn, delay); timeouts.push(id); };
+    setTypedText('');
+    setTypedSub('');
+    for (let i = 1; i <= title.length; i++) {
+      schedule(() => setTypedText(title.slice(0, i)), 200 + i * CHAR_DELAY);
+    }
+    const subStart = 200 + title.length * CHAR_DELAY + 400;
+    for (let i = 1; i <= sub.length; i++) {
+      schedule(() => setTypedSub(sub.slice(0, i)), subStart + i * SUB_DELAY);
+    }
+    return () => timeouts.forEach(clearTimeout);
   }, []);
-
-  const projects = [
-      {
-      title: "Aegis",
-      description:
-        "Design and development of a cybersecurity ecosystem aimed at protecting digital media from unauthorized distribution. The system implements a forensic steganography engine capable of embedding invisible, non-repudiable signatures. Resilience against aggressive manipulation, such as cropping, compression, or geometric attacks, is achieved through a proprietary algorithm combining Discrete Cosine Transform (DCT) with Spatial Redundancy (Tiling) and a Grid Search recovery system. The architecture integrates a cross-platform mobile application for secure transmission and a Python backend based on Security-by-Design principles and Zero Trust protocols.",
-      image: "/assets/project4.jpg", 
-      skills: ["Python", "Flutter", "Dart", "Flask", "OpenCV", "Digital Forensics", "Steganography", "Secure Coding", "UI/UX Design", "REST APIs"],
-    },
-
-    {
-      title: "ArchivIA",
-      description:
-        "Design and implementation of a computer vision model using transfer learning on a pre-trained neural network for the recognition of points of interest at the University of Ferrara, with the development of a complete web application (backend and frontend) to provide the user interface.",
-      image: "/assets/project1.JPG",
-      skills: ["Computer Vision", "Transfer Learning", "Fine Tuning", "PyTorch", "React", "FastAPI", "Python"],
-    },
-    {
-      title: "Predictive Analysis of Clinical Trial Failures",
-      description:
-        "Internship at the University of Ferrara focused on developing a Machine Learning model aimed at predicting the failure of clinical trials. The dataset used was large and included numerous clinical studies with unstructured textual descriptions. Implemented Natural Language Processing (NLP) techniques and developed an LSTM neural network for predictive model.",
-      image: "/assets/Project2.png",
-      skills: ["NLP", "LSTM", "Machine Learning", "Python", "Pandas", "Scikit-learn", "Tensorflow", "Keras"],
-    },
-    {
-      title: "Wedding Websites",
-      description:
-        "Developed websites for private clients. Responsible for the design, graphical layout, and technical implementation of an interactive and multimedia website.",
-      image: "/assets/project3.jpg",
-      skills: ["HTML", "CSS", "JavaScript", "React","UI Design", "Responsive Design", "Tailwind CSS", "PHP"],
-    },
-  ];
-
   return (
-    <div className="projects-page">
-      <section ref={vantaRef} className="projects-hero">
-        <h1 className="projects-title">Projects</h1>
-        <nav className="projects-menu">
-          <Link to="/" className="projects-link">Home</Link>
-          <Link to="/about" className="projects-link">About Me</Link>
-          <Link to="/projects" className="projects-link active">Projects</Link>
-          <Link to="/contacts" className="projects-link">Contacts</Link>
-        </nav>
+    <div className="projects-root">
+
+      {/* NAV */}
+      <nav className="projects-nav">
+        <Link to="/" className="projects-logo">cs.</Link>
+        <ul className="projects-nav-links">
+          <li><Link to="/">home</Link></li>
+          <li><Link to="/about">about me</Link></li>
+          <li><Link to="/projects" className="active">projects</Link></li>
+          <li><Link to="/contacts">contact me</Link></li>
+        </ul>
+      </nav>
+
+            {/* HERO */}
+      <section className="projects-aurora">
+
+        <h1 className="projects-hero-title">
+          {typedText}<span className="projects-hero-cursor"></span>
+        </h1>
+        <p className="projects-hero-sub">{typedSub}</p>
       </section>
 
+      <div className="projects-divider" />
+
+      {/* LIST */}
       <div className="projects-list">
         {projects.map((proj, i) => (
-          <section
+          <div
             key={i}
-            className={`project-section ${i % 2 === 1 ? "reverse" : ""}`}
+            className={`project-item ${i % 2 === 1 ? "reverse" : ""}`}
           >
-            <div className="project-photo-blob">
+            <div className="project-blob">
               <img src={proj.image} alt={proj.title} />
             </div>
             <div className="project-text">
-              <div className="project-title-row">
-                <h2>{proj.title}</h2>
-                <SkillsDropdown skills={proj.skills} />
-              </div>
-              <p>{proj.description}</p>
+              <p className="project-index">{String(i + 1).padStart(2, "0")} — {proj.category}</p>
+              <h2 className="project-title">{proj.title}</h2>
+              <p className="project-desc">{proj.description}</p>
+              <SkillsDropdown skills={proj.skills} />
             </div>
-          </section>
+          </div>
         ))}
       </div>
+
+      {/* FOOTER */}
+      <footer className="projects-footer">
+        <span className="projects-footer-left">© 2026 Chiara Sivieri</span>
+        <div className="projects-footer-links">
+          <a href="https://github.com/chiarasivieri" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/chiara-sivieri-604099332" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </footer>
+
     </div>
   );
 }
