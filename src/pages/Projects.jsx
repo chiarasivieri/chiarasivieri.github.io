@@ -26,6 +26,22 @@ function SkillsDropdown({ skills }) {
 
 const projects = [
   {
+    title: "AI.Turni",
+    category: "AI for healthcare",
+    description:
+      "Design and development of a web application to support healthcare staff shift planning at the Istituto Ortopedico Rizzoli of Bologna. The system combines an algorithm for schedule generation with an AI assistant (Rizzol.IA) that allows coordinators and hospital staff to query and modify shifts, optimizing the organizational workload across the entire facility. The project won the best poster award at a national nursing conference in May 2026.",
+    image: "/assets/aiturni.jpeg",
+    skills: ["Python", "React", "FastAPI", "Constrained Optimization", "LLM Integration", "Healthcare AI", "UI/UX Design"],
+  },
+  {
+    title: "LLMF",
+    category: "computer vision",
+    description:
+      "Design and development of a complete web application for automated fruit recognition and classification, built to optimize costs and processing times in agricultural companies. The system uses custom weights obtained by fine-tuning YOLOv8 on a multi-class fruit dataset, enabling real-time detection with bounding box annotation. The project includes a full stack implementation.",
+    image: "/assets/llmf.jpeg",
+    skills: ["YOLOv8", "Fine Tuning", "Python", "Computer Vision", "Object Detection", "React", "FastAPI", "REST APIs"],
+  },
+  {
     title: "Aegis",
     category: "cybersecurity",
     description:
@@ -66,7 +82,7 @@ export default function Projects() {
 
   useEffect(() => {
     const title = 'Projects';
-    const sub = 'Ideas brought to life, one project at a time';
+    const sub = 'Placeholder';
     const CHAR_DELAY = 80;
     const SUB_DELAY = 50;
     const timeouts = [];
@@ -98,7 +114,7 @@ export default function Projects() {
 
             {/* HERO */}
       <section className="projects-aurora">
-
+        <p className="projects-page-label">projects</p>
         <h1 className="projects-hero-title">
           {typedText}<span className="projects-hero-cursor"></span>
         </h1>

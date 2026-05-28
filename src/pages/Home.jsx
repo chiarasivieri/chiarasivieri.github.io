@@ -48,7 +48,7 @@ export default function Home() {
           {typedText}<span className="home-cursor"></span>
         </h1>
         <p className={`home-sub${showSub ? ' visible' : ''}`}>
-          AI developer: from research to real world applications
+          Full-stack developer con focus su interfacce chiare, codice pulito e soluzioni che durano nel tempo.
         </p>
         <div className={`home-cta-row${showCta ? ' visible' : ''}`}>
           <Link to="/projects" className="home-btn">view projects</Link>
@@ -73,23 +73,23 @@ export default function Home() {
             </div>
           </Link>
           <Link to="/projects" className="home-card">
-            <p className="home-card-tag">02 — cybersecurity</p>
-            <h3>Aegis</h3>
-            <p>Forensic steganography engine for digital media protection.</p>
+            <p className="home-card-tag">02 — AI for healthcare</p>
+            <h3>AI.Turni</h3>
+            <p>Shift planning web app with AI assistant for nursing coordinators at IOR Bologna. 🏆 Best poster award, May 2026.</p>
             <div className="home-stack">
-              <span className="home-tag">Python</span>
-              <span className="home-tag">Flutter</span>
-              <span className="home-tag">OpenCV</span>
+              <span className="home-tag">Constrained Optimization</span>
+              <span className="home-tag">React</span>
+              <span className="home-tag">FastAPI</span>
             </div>
           </Link>
           <Link to="/projects" className="home-card">
-            <p className="home-card-tag">03 — machine learning</p>
-            <h3>Clinical Trial Prediction</h3>
-            <p>NLP + LSTM model to predict failure in clinical studies.</p>
+            <p className="home-card-tag">03 — computer vision</p>
+            <h3>LLMF</h3>
+            <p>Full stack web app for real time fruit detection and classification via finetuned YOLOv8.</p>
             <div className="home-stack">
-              <span className="home-tag">NLP</span>
-              <span className="home-tag">LSTM</span>
-              <span className="home-tag">Keras</span>
+              <span className="home-tag">YOLOv8</span>
+              <span className="home-tag">Python</span>
+              <span className="home-tag">Fine Tuning</span>
             </div>
           </Link>
         </div>
