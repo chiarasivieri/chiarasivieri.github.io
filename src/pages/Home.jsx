@@ -48,7 +48,7 @@ export default function Home() {
           {typedText}<span className="home-cursor"></span>
         </h1>
         <p className={`home-sub${showSub ? ' visible' : ''}`}>
-          Full-stack developer con focus su interfacce chiare, codice pulito e soluzioni che durano nel tempo.
+          AI developer: from research to real world applications
         </p>
         <div className={`home-cta-row${showCta ? ' visible' : ''}`}>
           <Link to="/projects" className="home-btn">view projects</Link>
