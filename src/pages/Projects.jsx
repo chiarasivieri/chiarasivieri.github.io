@@ -114,7 +114,6 @@ export default function Projects() {
 
             {/* HERO */}
       <section className="projects-aurora">
-        <p className="projects-page-label">projects</p>
         <h1 className="projects-hero-title">
           {typedText}<span className="projects-hero-cursor"></span>
         </h1>
