@@ -82,7 +82,7 @@ export default function Projects() {
 
   useEffect(() => {
     const title = 'Projects';
-    const sub = 'Placeholder';
+    const sub = 'Ideas brought to life, one project at a time';
     const CHAR_DELAY = 80;
     const SUB_DELAY = 50;
     const timeouts = [];
