@@ -1,93 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./About.css";
-
-const galleryItems = [
-  { title: "unhealthy screentime", image: "/assets/screentime.png" },
-  { title: "fun facts",            image: "/assets/funfact.jpeg" },
-  { title: "extreme awkwardness",  image: "/assets/awkward.jpeg" },
-  { title: "unfunny jokes",        image: "/assets/unfunny.png" },
-  { title: "headache",             image: "/assets/headache.jpg" },
-  { title: "Coca Cola",            image: "/assets/cocacola.jpeg" },
-  { title: "random knowledge",     image: "/assets/random.jpeg" },
-  { title: "lack of sleep",        image: "/assets/sleep.webp" },
-];
-
-const N = galleryItems.length;
-function mod(i) { return ((i % N) + N) % N; }
-
-// Card sizes per slot: [-3, -2, -1, 0, 1, 2, 3]
-const SLOT_W = [95,  125, 160, 210, 160, 125, 95];
-const SLOT_H = [140, 185, 240, 315, 240, 185, 140];
-const GAP    = 12;
-
-function GalleryCarousel() {
-  const [current, setCurrent] = useState(0);
-  const animating = useRef(false);
-
-  const go = useCallback((dir) => {
-    if (animating.current) return;
-    animating.current = true;
-    setCurrent(c => mod(c + dir));
-    setTimeout(() => { animating.current = false; }, 480);
-  }, []);
-
-  // Total track width to center it
-  const totalW = SLOT_W.reduce((a, b) => a + b, 0) + GAP * 6;
-
-  return (
-    <div>
-      <div className="about-cs-stage">
-        <button className="about-cs-arrow" onClick={() => go(-1)} aria-label="precedente">&#8249;</button>
-
-        <div className="about-cs-outer">
-          <div
-            className="about-cs-track"
-            style={{ transform: `translateX(${-totalW / 2}px)` }}
-          >
-            {[-3,-2,-1,0,1,2,3].map((offset, slotIdx) => {
-              const idx = mod(current + offset);
-              const item = galleryItems[idx];
-              const isCenter = offset === 0;
-              return (
-                <div
-                  key={slotIdx}
-                  className={`about-cs-card${isCenter ? " about-cs-center" : ""}`}
-                  style={{
-                    width:  SLOT_W[slotIdx],
-                    height: SLOT_H[slotIdx],
-                    opacity: isCenter ? 1 : slotIdx === 1 || slotIdx === 5 ? 0.65 : 0.3,
-                    cursor: isCenter ? "default" : "pointer",
-                  }}
-                  onClick={() => !isCenter && go(offset > 0 ? 1 : -1)}
-                >
-                  <img src={item.image} alt={item.title} />
-                  {isCenter && <div className="about-cs-label">{item.title}</div>}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <button className="about-cs-arrow" onClick={() => go(1)} aria-label="successivo">&#8250;</button>
-      </div>
-
-      <div className="about-cs-dots">
-        {galleryItems.map((_, i) => (
-          <div
-            key={i}
-            className={`about-cs-dot${i === current ? " active" : ""}`}
-            onClick={() => !animating.current && setCurrent(i)}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function About() {
 
-    const [typedText, setTypedText] = useState('');
+  const [typedText, setTypedText] = useState('');
   const [typedSub, setTypedSub] = useState('');
 
   useEffect(() => {
@@ -112,6 +29,7 @@ export default function About() {
 
     return () => timeouts.forEach(clearTimeout);
   }, []);
+
   return (
     <div className="about-root">
 
@@ -126,7 +44,7 @@ export default function About() {
         </ul>
       </nav>
 
-            {/* HERO */}
+      {/* HERO */}
       <section className="about-aurora">
         <p className="about-page-label">Ai and Web Developer</p>
         <h1 className="about-hero-title">
@@ -201,17 +119,6 @@ export default function About() {
             🇮🇹 preview italiano
           </a>
         </div>
-      </section>
-
-      <div className="about-divider" />
-
-      {/* GALLERY */}
-      <section className="about-gallery-wrap">
-        <p className="about-section-label">beyond the algorithms</p>
-        <p className="about-gallery-sub">
-          Although, behind all those algorithms and data, that's what I bring to the table.
-        </p>
-        <GalleryCarousel />
       </section>
 
       {/* FOOTER */}
