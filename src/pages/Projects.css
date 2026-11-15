@@ -332,8 +332,8 @@
   top: calc(100% + 8px);
   left: 0;
   min-width: 190px;
-  background: rgba(255,255,255,0.28);
-  backdrop-filter: blur(32px) saturate(220%) brightness(1.08);
+  background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.18) 60%, rgba(255,255,255,0.32));
+  backdrop-filter: blur(28px) saturate(200%) brightness(1.06);
   -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.08);
   border: 1px solid rgba(255,255,255,0.45);
   border-radius: 14px;
@@ -343,7 +343,7 @@
   pointer-events: none;
   transition: opacity 0.22s ease, transform 0.22s ease;
   z-index: 20;
-  box-shadow: 0 8px 32px rgba(120,80,220,0.10), 0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+  box-shadow: 0 14px 40px rgba(20,20,40,0.10), 0 2px 6px rgba(20,20,40,0.06), inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(255,255,255,0.4), inset 0 0 0 1px rgba(255,255,255,0.35);
 }
 
 .skills-menu::before {
@@ -1441,3 +1441,17 @@
   color: #222;
 }
 .lang-toggle button:not(.on):hover { color: #444; }
+
+/* ── MOBILE: photos as clean rounded rectangles instead of blobs ── */
+@media (max-width: 768px) {
+  .project-blob,
+  .project-blob.detail-blob {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    animation: none;
+  }
+  .project-blob::after { display: none; }
+  .project-blob img { object-position: center 30%; }
+}
