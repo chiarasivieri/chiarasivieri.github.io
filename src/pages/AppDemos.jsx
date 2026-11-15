@@ -117,6 +117,7 @@ export function SupportDemo() {
     <div className="dm-root">
       <Bar title={it ? "Griglia turni · rientro da assenza" : "Shift grid · returning from leave"} />
       <div className="dm-body">
+        <div className="dm-scroll">
         <div className={`dm-grid s11 ${active ? "dim" : ""}`}>
           <div />
           {SUP_DAYS.map((d) => (
@@ -139,6 +140,7 @@ export function SupportDemo() {
           {SUP_PARTNER.map((c, i) => (
             <Cell key={i} code={c} hl={hlPartner(i)} />
           ))}
+        </div>
         </div>
 
         <div className="dm-tiles">

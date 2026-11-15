@@ -1455,3 +1455,19 @@
   .project-blob::after { display: none; }
   .project-blob img { object-position: center 30%; }
 }
+
+/* ── MOBILE: interactive demos grow with their content ── */
+@media (max-width: 768px) {
+  .demo-shot .shot-frame { aspect-ratio: auto; overflow: visible; }
+  .dm-root { position: relative; inset: auto; font-size: 13px; }
+  .dm-body { overflow: visible; }
+  .dm-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 2px 2px 6px; }
+  .dm-grid.s11 { min-width: 400px; grid-template-columns: 56px repeat(11, 1fr); }
+  .dm-grid.s11 .dm-rowlabel { font-size: 9px; padding: 4px 2px; }
+  .dm-tiles { grid-template-columns: 1fr; flex: none; }
+  .dm-tile { overflow: visible; padding: 12px; }
+  .dm-tile-title { font-size: 13px; }
+  .dm-tile-text { font-size: 12px; line-height: 1.5; }
+  .dm-tile-hint { font-size: 12px; }
+  .dm-tile .dm-assign .dm-cell { width: 36px; }
+}
