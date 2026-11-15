@@ -45,7 +45,6 @@ export const projects = [
       { value: 3, label: "core modules: solver, assistant, admin" },
       { value: "Local", label: "LLM, data stays in the hospital" },
       { value: "Best Poster", label: "award, May 2026" },
-      { value: "3rd", label: "International Day of Orthopedic Nursing, 2026" },
     ],
     features: [
       {

@@ -8,7 +8,6 @@ export const IT = {
       "moduli principali: solver, assistente, amministrazione",
       ["LLM, i dati restano in ospedale", "Locale"],
       ["premio, maggio 2026", "Miglior Poster"],
-      ["Giornata Internazionale dell'Infermieristica Ortopedica, 2026", "3ª"],
     ],
     features: [
       {
