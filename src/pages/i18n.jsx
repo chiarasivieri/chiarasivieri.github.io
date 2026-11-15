@@ -54,7 +54,7 @@ const UI = {
     readThesis: "leggi la tesi", paused: "visualizzazione in pausa", resume: "clicca per riprendere", loading: "caricamento…",
     aboutLabel: "AI e Web Developer", aboutTitle: "Chi sono", aboutSub: "Scritto e diretto da Naoki Urasawa",
     hi: "Ciao, sono Chiara.",
-    bio1: "La curiosità è sempre stata il mio motore. Sono un'informatica e al momento sto frequentando la laurea magistrale in Artificial Intelligence all'Università di Bologna, dove esploro come la tecnologia può plasmare il futuro.",
+    bio1: "La curiosità è sempre stata il mio motore. Sono un informatico e al momento sto frequentando la laurea magistrale in Artificial Intelligence all'Università di Bologna, dove esploro come la tecnologia può plasmare il futuro.",
     bio2: "Anche se i miei interessi vanno ben oltre le righe di codice e gli algoritmi: sono altrettanto affascinata dalla letteratura e dall'arte. Credo che la conoscenza raggiunga il massimo del suo potenziale quando è ampia e interconnessa, e cerco di mantenere una prospettiva a 360° in tutto ciò che faccio.",
     bio3: "Per me imparare non significa solo acquisire competenze, ma coltivare creatività, pensiero critico e una comprensione più profonda del mondo.",
     quote: "\"Il progettista è colui che conferisce forma al sogno.\"", quoteCite: "— Si alza il vento, 2013",
