@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./About.css";
+import { useLang, LangToggle } from "./i18n";
 
 export default function About() {
+  const { lang, t } = useLang();
 
   const [typedText, setTypedText] = useState('');
   const [typedSub, setTypedSub] = useState('');
 
   useEffect(() => {
-    const title = 'About me';
-    const sub = 'Written and directed by Naoki Urasawa';
+    const title = t('aboutTitle');
+    const sub = t('aboutSub');
     const CHAR_DELAY = 80;
     const SUB_DELAY = 50;
     const timeouts = [];
@@ -28,7 +30,8 @@ export default function About() {
     }
 
     return () => timeouts.forEach(clearTimeout);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang]);
 
   return (
     <div className="about-root">
@@ -37,16 +40,17 @@ export default function About() {
       <nav className="about-nav">
         <Link to="/" className="about-logo">cs.</Link>
         <ul className="about-nav-links">
-          <li><Link to="/">home</Link></li>
-          <li><Link to="/about" className="active">about me</Link></li>
-          <li><Link to="/projects">projects</Link></li>
-          <li><Link to="/contacts">contact me</Link></li>
+          <li><Link to="/">{t("home")}</Link></li>
+          <li><Link to="/about" className="active">{t("about")}</Link></li>
+          <li><Link to="/projects">{t("projects")}</Link></li>
+          <li><Link to="/contacts">{t("contacts")}</Link></li>
+          <li><LangToggle /></li>
         </ul>
       </nav>
 
       {/* HERO */}
       <section className="about-aurora">
-        <p className="about-page-label">Ai and Web Developer</p>
+        <p className="about-page-label">{t("aboutLabel")}</p>
         <h1 className="about-hero-title">
           {typedText}<span className="about-hero-cursor"></span>
         </h1>
@@ -61,21 +65,10 @@ export default function About() {
           <img src="/assets/laurea.jpg" alt="Chiara Sivieri" />
         </div>
         <div className="about-bio-text">
-          <h2>Hi, I'm Chiara.</h2>
-          <p>
-            Curiosity has always been my driving force. I'm a Computer Scientist and currently a Master's
-            student in Artificial Intelligence at the University of Bologna, where I explore how technology
-            can shape the future.
-          </p>
-          <p>
-            Yet my interests go far beyond code and algorithms, I'm equally fascinated by literature and art.
-            I believe that knowledge is most powerful when it's broad and interconnected, and I strive to keep
-            a 360° perspective in everything I do.
-          </p>
-          <p>
-            For me, learning is not just about acquiring skills, but about cultivating creativity, critical
-            thinking, and a deeper understanding of the world.
-          </p>
+          <h2>{t("hi")}</h2>
+          <p>{t("bio1")}</p>
+          <p>{t("bio2")}</p>
+          <p>{t("bio3")}</p>
         </div>
       </section>
 
@@ -85,8 +78,8 @@ export default function About() {
       <section className="about-quote-wrap">
         <div className="about-quote-row">
           <div className="about-quote-card">
-            <p className="about-quote-text">"Engineers turn dreams into reality."</p>
-            <span className="about-quote-cite">— The Wind Rises, 2013</span>
+            <p className="about-quote-text">{t("quote")}</p>
+            <span className="about-quote-cite">{t("quoteCite")}</span>
           </div>
           <div className="about-quote-photo">
             <img src="/assets/about-2.jpg" alt="Chiara Sivieri" onError={(e) => { e.currentTarget.parentElement.style.display = "none"; }} />
@@ -98,16 +91,9 @@ export default function About() {
 
       {/* GOAL */}
       <section className="about-goal-wrap">
-        <p className="about-section-label">the next goal</p>
+        <p className="about-section-label">{t("goalLabel")}</p>
         <div className="about-goal-card">
-          <p>
-            Biomedical data analysis is an area where machine learning still has enormous, largely unexplored
-            potential. I'm drawn to the challenge of extracting meaningful patterns from complex biosignals,
-            where the complexity of the data reflects the complexity of the human body itself. It's a field
-            where methodological rigor isn't optional: when model reliability directly affects clinical
-            decisions, there's no room for shortcuts. That's exactly the kind of environment I want to work
-            in, where the technical challenges are hard and the results actually matter.
-          </p>
+          <p>{t("goal")}</p>
         </div>
       </section>
 
@@ -115,13 +101,13 @@ export default function About() {
 
       {/* CV */}
       <section className="about-cv-wrap">
-        <p className="about-section-label">curriculum vitae</p>
+        <p className="about-section-label">{t("cvLabel")}</p>
         <div className="about-cv-row">
           <a href="/assets/Chiara_Sivieri_CV_ENG.pdf" target="_blank" rel="noopener noreferrer" className="about-cv-btn">
-            🇬🇧 preview english
+            🇬🇧 {t("cvEn")}
           </a>
           <a href="/assets/CHIARA_SIVIERI_CV_IT.pdf" target="_blank" rel="noopener noreferrer" className="about-cv-btn">
-            🇮🇹 preview italiano
+            🇮🇹 {t("cvIt")}
           </a>
         </div>
       </section>

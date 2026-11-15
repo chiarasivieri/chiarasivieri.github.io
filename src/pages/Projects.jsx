@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Projects.css";
+import { useLang, LangToggle, localizeProject } from "./i18n";
+import { IT } from "./projects.it";
 
 function SkillsDropdown({ skills }) {
   const [open, setOpen] = useState(false);
+  const { t } = useLang();
 
   return (
     <div
@@ -13,7 +16,7 @@ function SkillsDropdown({ skills }) {
       onClick={() => setOpen(o => !o)}
     >
       <button className="skills-trigger">
-        skills <span className="skills-arrow">▾</span>
+        {t("skills")} <span className="skills-arrow">▾</span>
       </button>
       <div className="skills-menu">
         {skills.map((skill, i) => (
@@ -42,6 +45,7 @@ export const projects = [
       { value: 3, label: "core modules: solver, assistant, admin" },
       { value: "Local", label: "LLM, data stays in the hospital" },
       { value: "Best Poster", label: "award, May 2026" },
+      { value: "3rd", label: "International Day of Orthopedic Nursing, 2026" },
     ],
     features: [
       {
@@ -293,7 +297,7 @@ export const projects = [
     title: "Clinical Trial Prediction",
     category: "machine learning",
     description:
-      "Internship at the University of Ferrara focused on developing a Machine Learning model aimed at predicting the failure of clinical trials. Implemented Natural Language Processing (NLP) techniques and developed an LSTM neural network on large datasets with unstructured textual descriptions.",
+      "Bachelor's thesis at the University of Ferrara focused on developing a Machine Learning model aimed at predicting the failure of clinical trials. Implemented Natural Language Processing (NLP) techniques and developed an LSTM neural network on large datasets with unstructured textual descriptions.",
     image: "/assets/Project2.png",
     skills: ["NLP", "LSTM", "Machine Learning", "Deep Learning", "Python", "Pandas", "NLTK", "Scikit-learn", "Tensorflow", "Keras", "Keras Tuner", "SMOTE"],
     gallery: [
@@ -365,13 +369,17 @@ export const projects = [
   },
 ];
 
+export const localizedProjects = (lang) => projects.map((pr) => localizeProject(pr, lang, IT));
+
 export default function Projects() {
+  const { lang, t } = useLang();
+  const list = localizedProjects(lang);
   const [typedText, setTypedText] = useState("");
   const [typedSub, setTypedSub] = useState("");
 
   useEffect(() => {
-    const title = "Projects";
-    const sub = "Ideas brought to life, one project at a time";
+    const title = t("projectsTitle");
+    const sub = t("projectsSub");
     const CHAR_DELAY = 80;
     const SUB_DELAY = 50;
     const timeouts = [];
@@ -389,7 +397,8 @@ export default function Projects() {
       schedule(() => setTypedSub(sub.slice(0, i)), subStart + i * SUB_DELAY);
     }
     return () => timeouts.forEach(clearTimeout);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang]);
 
   return (
     <div className="projects-root">
@@ -398,10 +407,11 @@ export default function Projects() {
       <nav className="projects-nav">
         <Link to="/" className="projects-logo">cs.</Link>
         <ul className="projects-nav-links">
-          <li><Link to="/">home</Link></li>
-          <li><Link to="/about">about me</Link></li>
-          <li><Link to="/projects" className="active">projects</Link></li>
-          <li><Link to="/contacts">contact me</Link></li>
+          <li><Link to="/">{t("home")}</Link></li>
+          <li><Link to="/about">{t("about")}</Link></li>
+          <li><Link to="/projects" className="active">{t("projects")}</Link></li>
+          <li><Link to="/contacts">{t("contacts")}</Link></li>
+          <li><LangToggle /></li>
         </ul>
       </nav>
 
@@ -417,7 +427,7 @@ export default function Projects() {
 
       {/* LIST */}
       <div className="projects-list">
-        {projects.map((proj, i) => (
+        {list.map((proj, i) => (
           <div
             key={i}
             className={`project-item ${i % 2 === 1 ? "reverse" : ""}`}
@@ -433,7 +443,7 @@ export default function Projects() {
                 <SkillsDropdown skills={proj.skills} />
                 {proj.slug && (
                   <Link to={`/projects/${proj.slug}`} className="learn-more">
-                    learn more <span>→</span>
+                    {t("learnMore")} <span>→</span>
                   </Link>
                 )}
               </div>

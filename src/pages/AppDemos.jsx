@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useLang } from "./i18n";
 
 /* Interactive replicas of two Rizzol.IA screens, built in HTML so the text stays editable. */
 
@@ -35,10 +36,11 @@ function Cell({ code, onClick, manual, pulse, hl }) {
 }
 
 function Bar({ title }) {
+  const { t } = useLang();
   return (
     <div className="dm-bar">
       <b>{title}</b>
-      <i>interactive demo</i>
+      <i>{t("interactiveDemo")}</i>
     </div>
   );
 }
@@ -70,6 +72,12 @@ const ICONS = {
   ),
 };
 
+const TILES_IT = {
+  1: { title: "Quando compare", text: "Al rientro da ferie o malattia, nei giorni in cui il ciclo dei turni prevederebbe un riposo per riallinearsi con il partner di lavoro." },
+  2: { title: "Cosa significa", text: "La persona è libera ma non ha un turno: conta 0 ore finché non le viene assegnato." },
+  3: { title: "Cosa fa il coordinatore", text: "Clicca sulla cella e sceglie il turno dove serve, ad esempio per coprire un buco." },
+};
+
 const TILES = [
   {
     id: 1,
@@ -92,6 +100,8 @@ const TILES = [
 ];
 
 export function SupportDemo() {
+  const { lang } = useLang();
+  const it = lang === "it";
   const [active, setActive] = useState(null);
   const [assigned, setAssigned] = useState(null);
 
@@ -105,7 +115,7 @@ export function SupportDemo() {
 
   return (
     <div className="dm-root">
-      <Bar title="Shift grid · returning from leave" />
+      <Bar title={it ? "Griglia turni · rientro da assenza" : "Shift grid · returning from leave"} />
       <div className="dm-body">
         <div className={`dm-grid s11 ${active ? "dim" : ""}`}>
           <div />
@@ -113,7 +123,7 @@ export function SupportDemo() {
             <div key={d} className="dm-head">{d}</div>
           ))}
 
-          <div className="dm-rowlabel">Back from leave</div>
+          <div className="dm-rowlabel">{it ? "Rientro da assenza" : "Back from leave"}</div>
           {back.map((c, i) => (
             <Cell
               key={i}
@@ -125,14 +135,14 @@ export function SupportDemo() {
             />
           ))}
 
-          <div className="dm-rowlabel">Work partner</div>
+          <div className="dm-rowlabel">{it ? "Partner di lavoro" : "Work partner"}</div>
           {SUP_PARTNER.map((c, i) => (
             <Cell key={i} code={c} hl={hlPartner(i)} />
           ))}
         </div>
 
         <div className="dm-tiles">
-          {TILES.map((t) => (
+          {TILES.map((t0) => { const t = it ? { ...t0, ...TILES_IT[t0.id] } : t0; return (
             <div
               key={t.id}
               role="button"
@@ -151,7 +161,7 @@ export function SupportDemo() {
                 <div className="dm-tile-extra" onClick={(e) => e.stopPropagation()}>
                   {!assigned ? (
                     <>
-                      <div className="dm-tile-hint">Assign day 11:</div>
+                      <div className="dm-tile-hint">{it ? "Assegna il giorno 11:" : "Assign day 11:"}</div>
                       <div className="dm-assign">
                         {["m", "I", "N"].map((c) => (
                           <Cell key={c} code={c} onClick={() => setAssigned(c)} />
@@ -161,15 +171,15 @@ export function SupportDemo() {
                   ) : (
                     <>
                       <div className="dm-tile-hint">
-                        Assigned <b>{assigned}</b>: it now counts toward her hours.
+                        {it ? <>Assegnato <b>{assigned}</b>: ora conta nelle sue ore.</> : <>Assigned <b>{assigned}</b>: it now counts toward her hours.</>}
                       </div>
-                      <button className="dm-link" onClick={() => setAssigned(null)}>undo</button>
+                      <button className="dm-link" onClick={() => setAssigned(null)}>{it ? "annulla" : "undo"}</button>
                     </>
                   )}
                 </div>
               )}
             </div>
-          ))}
+          ); })}
         </div>
       </div>
     </div>

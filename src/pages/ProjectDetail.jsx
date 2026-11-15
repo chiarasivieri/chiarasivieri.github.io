@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, useParams } from "react-router-dom";
-import { projects } from "./Projects";
+import { localizedProjects } from "./Projects";
+import { useLang, LangToggle } from "./i18n";
 import ThesisViewer from "./ThesisViewer";
 import { SupportDemo, ShiftEditDemo } from "./AppDemos";
 import "./Projects.css";
@@ -153,6 +154,7 @@ function Album({ items }) {
    item = { src, caption, zooms: [{ label, x, y, w, h }] }  (x, y, w, h in % of the image)
    Open the site with ?zoomtool in the address, then drag on the image to measure a new zoom. */
 function Lightbox({ item, startView = -1, onClose }) {
+  const { t } = useLang();
   const zooms = item.zooms || [];
   const [view, setView] = useState(startView); // -1 = full image
   const [nat, setNat] = useState(null);
@@ -272,7 +274,7 @@ function Lightbox({ item, startView = -1, onClose }) {
 
       {zooms.length > 0 && (
         <div className="lb-chips" onClick={(e) => e.stopPropagation()}>
-          <button className={`lb-chip ${view === -1 ? "on" : ""}`} onClick={() => setView(-1)}>full image</button>
+          <button className={`lb-chip ${view === -1 ? "on" : ""}`} onClick={() => setView(-1)}>{t("fullImage")}</button>
           {zooms.map((zz, i) => (
             <button key={i} className={`lb-chip ${view === i ? "on" : ""}`} onClick={() => setView(i)}>
               {zz.label}
@@ -474,6 +476,7 @@ function Shot({ src, caption, n, fit, onOpen, callouts }) {
 
 /* ── Stat card with count-up ── */
 function Stat({ value, label, suffix = "", prefix = "", delay = 0 }) {
+  const { lang } = useLang();
   const ref = useRef(null);
   const isNum = typeof value === "number";
   const [shown, setShown] = useState(isNum ? 0 : value);
@@ -500,7 +503,7 @@ function Stat({ value, label, suffix = "", prefix = "", delay = 0 }) {
     return () => { io.disconnect(); cancelAnimationFrame(raf); };
   }, [value, isNum]);
 
-  const text = typeof shown === "number" ? shown.toLocaleString("en-US") : shown;
+  const text = isNum ? shown.toLocaleString(lang === "it" ? "it-IT" : "en-US") : value;
   return (
     <div
       ref={ref}
@@ -516,10 +519,11 @@ function Stat({ value, label, suffix = "", prefix = "", delay = 0 }) {
 
 export default function ProjectDetail() {
   const { slug } = useParams();
+  const { lang, t } = useLang();
   const barRef = useRef(null);
   const [lb, setLb] = useState(null);
 
-  const detailed = projects.filter((p) => p.slug);
+  const detailed = localizedProjects(lang).filter((p) => p.slug);
   const index = detailed.findIndex((p) => p.slug === slug);
   const proj = detailed[index];
 
@@ -533,10 +537,11 @@ export default function ProjectDetail() {
     <nav className="projects-nav">
       <Link to="/" className="projects-logo">cs.</Link>
       <ul className="projects-nav-links">
-        <li><Link to="/">home</Link></li>
-        <li><Link to="/about">about me</Link></li>
-        <li><Link to="/projects" className="active">projects</Link></li>
-        <li><Link to="/contacts">contact me</Link></li>
+        <li><Link to="/">{t("home")}</Link></li>
+        <li><Link to="/about">{t("about")}</Link></li>
+        <li><Link to="/projects" className="active">{t("projects")}</Link></li>
+        <li><Link to="/contacts">{t("contacts")}</Link></li>
+        <li><LangToggle /></li>
       </ul>
     </nav>
   );
@@ -546,8 +551,8 @@ export default function ProjectDetail() {
       <div className="projects-root">
         {nav}
         <div className="projects-aurora">
-          <h1 className="projects-hero-title">Project not found</h1>
-          <Link to="/projects" className="learn-more">← back to projects</Link>
+          <h1 className="projects-hero-title">{t("notFound")}</h1>
+          <Link to="/projects" className="learn-more">{t("backToProjects")}</Link>
         </div>
       </div>
     );
@@ -567,7 +572,7 @@ export default function ProjectDetail() {
         </div>
 
         <div className="detail-hero-text">
-          <Link to="/projects" className="learn-more">← back</Link>
+          <Link to="/projects" className="learn-more">{t("back")}</Link>
           <p className="project-index detail-category">{proj.category}</p>
           <h1 className="projects-hero-title">
             {typedTitle}<span className="projects-hero-cursor"></span>
@@ -605,7 +610,7 @@ export default function ProjectDetail() {
       {/* FEATURES */}
       {proj.features && (
         <div className="detail-features">
-          <p className="project-index detail-block-title reveal">what it does</p>
+          <p className="project-index detail-block-title reveal">{t("whatItDoes")}</p>
           {proj.note && <p className="detail-note reveal">{proj.note}</p>}
           {proj.features.map((f, i) => (
             <div key={i} className={`feature ${i % 2 === 1 ? "reverse" : ""} ${f.noShot ? "solo" : ""}`}>
@@ -658,12 +663,12 @@ export default function ProjectDetail() {
       {/* ROADMAP */}
       {proj.roadmap && (
         <div className="detail-roadmap">
-          <p className="project-index detail-block-title reveal">roadmap</p>
+          <p className="project-index detail-block-title reveal">{t("roadmap")}</p>
           <div className="timeline observe">
             {proj.roadmap.map((r, i) => (
               <div key={i} className={`tl-item reveal rv-left ${r.status}`}>
                 <span className="tl-dot" />
-                <p className="tl-status">{r.status === "now" ? "in progress" : r.status}</p>
+                <p className="tl-status">{{ done: t("done"), now: t("now"), next: t("nextStatus"), future: t("future") }[r.status] || r.status}</p>
                 <h4 className="tl-title">{r.title}</h4>
                 <p className="project-desc tl-text">{r.text}</p>
               </div>
@@ -674,7 +679,7 @@ export default function ProjectDetail() {
 
       {/* STACK */}
       <div className="detail-stack">
-        <p className="project-index detail-block-title reveal">stack &amp; skills</p>
+        <p className="project-index detail-block-title reveal">{t("stack")}</p>
         <div className="detail-chips">
           {proj.skills.map((s, i) => (
             <span
@@ -690,9 +695,9 @@ export default function ProjectDetail() {
 
       {/* NEXT */}
       <div className="detail-next">
-        <Link to="/projects" className="learn-more">← all projects</Link>
+        <Link to="/projects" className="learn-more">{t("allProjects")}</Link>
         <Link to={`/projects/${next.slug}`} className="learn-more">
-          next: {next.title} <span>→</span>
+          {t("next")} {next.title} <span>→</span>
         </Link>
       </div>
 

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useLang } from "./i18n";
 
 const pad = (n) => String(n).padStart(2, "0");
 
@@ -18,6 +19,7 @@ const spot = (e) => {
   Note: this deters casual copying; no website can fully block screenshots or screen recording.
 */
 export default function ThesisViewer({ doc }) {
+  const { t } = useLang();
   const skip = doc.skip || [];
   const pages = Array.from({ length: doc.count }, (_, i) => i + 1).filter((n) => !skip.includes(n));
   const total = pages.length;
@@ -116,12 +118,12 @@ export default function ThesisViewer({ doc }) {
           <img src={src(0)} alt="" draggable={false} onContextMenu={stop} onError={(e) => { e.currentTarget.style.display = "none"; }} />
         </div>
         <div className="doc-info">
-          <div className="doc-kicker">read the document</div>
+          <div className="doc-kicker">{t("readDoc")}</div>
           <div className="doc-title">{doc.title}</div>
           {doc.subtitle && <div className="doc-sub">{doc.subtitle}</div>}
-          <div className="doc-note">View only — downloading and printing are disabled.</div>
+          <div className="doc-note">{t("viewOnly")}</div>
           <button className="doc-btn" onClick={openViewer}>
-            read the thesis <span>→</span>
+            {t("readThesis")} <span>→</span>
           </button>
         </div>
       </div>
@@ -145,7 +147,7 @@ export default function ThesisViewer({ doc }) {
                 <canvas ref={canvasRef} className="tv-canvas" />
                 <div className="tv-wm" />
               </div>
-              {loading && <div className="tv-loading">loading…</div>}
+              {loading && <div className="tv-loading">{t("loading")}</div>}
               {error && (
                 <div className="tv-loading tv-error">
                   page not found
@@ -168,8 +170,8 @@ export default function ThesisViewer({ doc }) {
 
             {away && (
               <div className="tv-away" onClick={() => setAway(false)}>
-                <div>viewing paused</div>
-                <div className="tv-away-sub">click to resume</div>
+                <div>{t("paused")}</div>
+                <div className="tv-away-sub">{t("resume")}</div>
               </div>
             )}
           </div>,
