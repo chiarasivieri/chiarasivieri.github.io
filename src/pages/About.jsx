@@ -57,12 +57,15 @@ export default function About() {
         <p className="about-hero-sub">{typedSub}</p>
       </section>
 
-      <div className="about-divider" />
+      <div className="about-divider-wrap">
+        <img className="about-smiski" src="/assets/smiski.png" alt="" aria-hidden="true" draggable="false" onLoad={(e) => { if (e.currentTarget.naturalWidth > 300) e.currentTarget.classList.add("raw"); }} onError={(e) => (e.currentTarget.style.display = "none")} />
+        <div className="about-divider about-divider-live" />
+      </div>
 
       {/* BIO */}
       <section className="about-bio">
         <div className="about-blob">
-          <img src="/assets/laurea.jpg" alt="Chiara Sivieri" />
+          <img src="/assets/about-3.jpg" alt="Chiara Sivieri" onError={(e) => { e.currentTarget.src = "/assets/laurea.jpg"; }} />
         </div>
         <div className="about-bio-text">
           <h2>{t("hi")}</h2>
