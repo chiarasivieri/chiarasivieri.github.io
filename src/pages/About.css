@@ -652,3 +652,8 @@
 @media (max-width: 768px) {
   .about-smiski.raw { width: 225px; right: calc(2.5rem - 79px); bottom: calc(-62px - var(--smiski-drop, 16px)); }
 }
+
+/* telefono: la sottoriga va a capo, così il nome non finisce sotto lo smiski */
+@media (max-width: 768px) {
+  .about-hero-sub { max-width: 22ch; text-wrap: balance; }
+}
