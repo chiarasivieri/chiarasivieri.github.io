@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLang, LangToggle } from "./i18n";
 import "./Home.css";
 
 export default function Home() {
+  const { t } = useLang();
   const [typedText, setTypedText] = useState('');
   const [showSub, setShowSub] = useState(false);
   const [showCta, setShowCta] = useState(false);
@@ -35,24 +37,25 @@ export default function Home() {
       <nav className="home-nav">
         <Link to="/" className="home-logo">cs.</Link>
         <ul className="home-nav-links">
-          <li><Link to="/about">about me</Link></li>
-          <li><Link to="/projects">projects</Link></li>
-          <li><Link to="/contacts">contact me</Link></li>
+          <li><Link to="/about">{t("about")}</Link></li>
+          <li><Link to="/projects">{t("projects")}</Link></li>
+          <li><Link to="/contacts">{t("contacts")}</Link></li>
+          <li><LangToggle /></li>
         </ul>
       </nav>
 
       {/* HERO */}
       <section className="home-hero">
-        <p className="home-eyebrow">AI &amp; Web Developer</p>
+        <p className="home-eyebrow">{t("homeEyebrow")}</p>
         <h1 ref={null} className="home-hero-title">
           {typedText}<span className="home-cursor"></span>
         </h1>
         <p className={`home-sub${showSub ? ' visible' : ''}`}>
-          AI developer: from research to real world applications
+          {t("homeSub")}
         </p>
         <div className={`home-cta-row${showCta ? ' visible' : ''}`}>
-          <Link to="/projects" className="home-btn">view projects</Link>
-          <Link to="/contacts" className="home-btn home-btn-ghost">contact me →</Link>
+          <Link to="/projects" className="home-btn">{t("viewProjects")}</Link>
+          <Link to="/contacts" className="home-btn home-btn-ghost">{t("contactArrow")}</Link>
         </div>
       </section>
 
@@ -60,32 +63,32 @@ export default function Home() {
 
       {/* SELECTED PROJECTS */}
       <section className="home-section">
-        <p className="home-section-label">selected projects</p>
+        <p className="home-section-label">{t("selected")}</p>
         <div className="home-projects">
-          <Link to="/projects" className="home-card">
-            <p className="home-card-tag">01 — computer vision</p>
+          <Link to="/projects/archivia" className="home-card">
+            <p className="home-card-tag">01 — {t("tagCV")}</p>
             <h3>ArchivIA</h3>
-            <p>Transfer learning model for POI recognition with full-stack web app.</p>
+            <p>{t("cardArchivia")}</p>
             <div className="home-stack">
               <span className="home-tag">PyTorch</span>
               <span className="home-tag">React</span>
               <span className="home-tag">FastAPI</span>
             </div>
           </Link>
-          <Link to="/projects" className="home-card">
-            <p className="home-card-tag">02 — AI for healthcare</p>
+          <Link to="/projects/ai-turni" className="home-card">
+            <p className="home-card-tag">02 — {t("tagHealth")}</p>
             <h3>AI.Turni</h3>
-            <p>Shift planning web app with AI assistant for nursing coordinators at IOR Bologna. 🏆 Best poster award, May 2026.</p>
+            <p>{t("cardTurni")}</p>
             <div className="home-stack">
               <span className="home-tag">Constrained Optimization</span>
               <span className="home-tag">React</span>
               <span className="home-tag">FastAPI</span>
             </div>
           </Link>
-          <Link to="/projects" className="home-card">
-            <p className="home-card-tag">03 — computer vision</p>
+          <Link to="/projects/llmf" className="home-card">
+            <p className="home-card-tag">03 — {t("tagCV")}</p>
             <h3>LLMF</h3>
-            <p>Full stack web app for real time fruit detection and classification via finetuned YOLOv8.</p>
+            <p>{t("cardLlmf")}</p>
             <div className="home-stack">
               <span className="home-tag">YOLOv8</span>
               <span className="home-tag">Python</span>
@@ -99,11 +102,11 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="home-footer">
-        <span className="home-footer-left">© 2026 Chiara Sivieri — open to opportunities</span>
+        <span className="home-footer-left">{t("footerLeft")}</span>
         <div className="home-footer-links">
           <a href="https://github.com/chiarasivieri" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/chiara-sivieri-604099332" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <Link to="/contacts">Email</Link>
+          <Link to="/contacts">{t("email")}</Link>
         </div>
       </footer>
 

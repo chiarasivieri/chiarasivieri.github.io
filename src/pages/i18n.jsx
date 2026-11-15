@@ -41,6 +41,13 @@ const UI = {
     goalLabel: "the next goal",
     goal: "Biomedical data analysis is an area where machine learning still has enormous, largely unexplored potential. I'm drawn to the challenge of extracting meaningful patterns from complex biosignals, where the complexity of the data reflects the complexity of the human body itself. It's a field where methodological rigor isn't optional: when model reliability directly affects clinical decisions, there's no room for shortcuts. That's exactly the kind of environment I want to work in, where the technical challenges are hard and the results actually matter.",
     cvLabel: "curriculum vitae", cvEn: "preview english", cvIt: "preview italiano",
+    homeEyebrow: "AI & Web Developer", homeSub: "AI developer: from research to real world applications",
+    viewProjects: "view projects", contactArrow: "contact me →", selected: "selected projects",
+    footerLeft: "© 2026 Chiara Sivieri — open to opportunities", email: "Email",
+    cardArchivia: "Transfer learning model for POI recognition with full-stack web app.",
+    cardTurni: "Shift planning web app with AI assistant for nursing coordinators at IOR Bologna. 🏆 Best poster award, May 2026.",
+    cardLlmf: "Full stack web app for real time fruit detection and classification via finetuned YOLOv8.",
+    tagCV: "computer vision", tagHealth: "AI for healthcare",
   },
   it: {
     home: "home", about: "chi sono", projects: "progetti", contacts: "contatti",
@@ -61,6 +68,13 @@ const UI = {
     goalLabel: "il prossimo obiettivo",
     goal: "L'analisi di dati biomedici è un ambito in cui il machine learning ha ancora un potenziale enorme e in gran parte inesplorato. Mi attrae la sfida di estrarre pattern significativi da biosegnali complessi, dove la complessità dei dati riflette quella del corpo umano. È un campo in cui il rigore metodologico non è opzionale: quando l'affidabilità di un modello incide direttamente sulle decisioni cliniche, non ci sono scorciatoie. È esattamente l'ambiente in cui voglio lavorare, dove le sfide tecniche sono difficili e i risultati contano davvero.",
     cvLabel: "curriculum vitae", cvEn: "anteprima inglese", cvIt: "anteprima italiano",
+    homeEyebrow: "AI & Web Developer", homeSub: "Sviluppatrice AI: dalla ricerca alla vita reale",
+    viewProjects: "vedi i progetti", contactArrow: "contattami →", selected: "progetti in evidenza",
+    footerLeft: "© 2026 Chiara Sivieri — aperta a nuove opportunità", email: "Email",
+    cardArchivia: "Modello di transfer learning per il riconoscimento di luoghi di interesse, con web app full-stack.",
+    cardTurni: "Web app per la pianificazione dei turni con assistente AI per i coordinatori infermieristici dell'IOR di Bologna. 🏆 Miglior poster, maggio 2026.",
+    cardLlmf: "Web app full stack per il rilevamento e la classificazione della frutta in tempo reale con YOLOv8 addestrato su misura.",
+    tagCV: "computer vision", tagHealth: "AI per la sanità",
   },
 };
 
