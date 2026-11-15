@@ -83,9 +83,14 @@ export default function About() {
 
       {/* QUOTE */}
       <section className="about-quote-wrap">
-        <div className="about-quote-card">
-          <p className="about-quote-text">"Engineers turn dreams into reality."</p>
-          <span className="about-quote-cite">— The Wind Rises, 2013</span>
+        <div className="about-quote-row">
+          <div className="about-quote-card">
+            <p className="about-quote-text">"Engineers turn dreams into reality."</p>
+            <span className="about-quote-cite">— The Wind Rises, 2013</span>
+          </div>
+          <div className="about-quote-photo">
+            <img src="/assets/about-2.jpg" alt="Chiara Sivieri" onError={(e) => { e.currentTarget.parentElement.style.display = "none"; }} />
+          </div>
         </div>
       </section>
 
